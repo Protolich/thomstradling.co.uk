@@ -1,0 +1,18 @@
+server {
+	listen	80;
+	server_name www.thomstradling.co.uk thomstradling.co.uk;
+	access_log /srv/www/thomstradling.co.uk/logs/access.log;
+	error_log /srv/www/thomstradling.co.uk/logs/error.log;
+
+	location / {
+		root /srv/www/thomstradling.co.uk/public_html;
+		index index.html index.htm index.php;
+	}
+
+	location ~ \.php$ {
+		include		/etc/nginx/fastcgi_params;
+		fastcgi_pass	127.0.0.1:9000;
+		fastcgi_index	index.php;
+		fastcgi_param	SCRIPT_FILENAME /srv/www/thomstradling.co.uk/public_html$fastcgi_script_name;
+	}	
+}
