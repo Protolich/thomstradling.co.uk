@@ -1,0 +1,737 @@
+/*
+# Settings (_settings)
+*/
+
+/*
+## Variables
+
+### General
+
+$phi: 1.618033988749 - Golden ratio
+*/
+$phi: 1.618033988749;
+
+/*
+### Colours
+
+<span style="color: #333">$colour-base - #333</span> <span style="background: #333; color: #FFF;">&nbsp;$colour-base - #333&nbsp;</span>
+
+<span style="color: #339">$colour-highlight - #339</span> <span style="background: #339; color: #FFF;">&nbsp;$colour-highlight - #339&nbsp;</span>
+
+<span style="color: #339">$colour-link - #339</span> <span style="background: #339; color: #FFF;">&nbsp;$colour-link - #339&nbsp;</span>
+*/
+$colour-base: 		#333;
+$colour-highlight: 	#36F;
+$colour-link: 		#339;
+
+/*
+### Fonts
+
+$font-size - 13
+
+$line-height - 1.4
+
+<span style="font-family: sans-serif;">$font-base - sans-serif</span>
+
+<span style="font-family: sans-serif;">$font-header - sans-serif</span>
+*/
+$font-size: 	13;
+$line-height: 	1.4;
+
+$font-base: 	sans-serif;
+$font-header: 	sans-serif;
+
+
+/*
+### Layout
+
+$width - 960
+
+$columns - 24
+
+$gutter - 12
+*/
+$width: 	960;
+$columns: 	24;
+$gutter: 	12;
+
+
+/*
+## Functions
+
+### em($size: $font-size, $context: $fs)
+
+Will convert a pixel based size to an em value.
+First value is the target size, the second value is the font-size of the context it is in.
+
+Examples:
+`em(26)` // 2em if base font-size is 13px
+`em(18, 12)` // 1.5em
+*/
+@function em($size: $font-size, $context: $font-size) {
+	@return $size/$context + em;
+}
+
+/*
+### lh($size: $font-size, $context: $fs)
+
+Will provide the same function as 'em' above buth without appending 'em' to the result.
+This makes it more suitable to use as a line-height value.
+
+Examples:
+`lh(26)` // 2 if base font-size is 13px
+`lh(18, 12)` // 1.5
+*/
+@function lh($size: $font-size, $context: $font-size) {
+	@return $size/$context;
+}
+
+/*
+### fluid($columns: 1, $total-columns: $columns)
+
+Will provide the % result of the first value divided by the second.
+Suitable for working out columns and general % values.
+
+Examples:
+`fluid(2, 6)` // 12.5%
+`fluid(10px, 960px)` // 1.041666666666667%
+*/
+@function fluid($columns: 1, $total-columns: $columns)
+{
+  @return ($columns / $total-columns) * 100%;
+}
+
+/*
+## Mixins
+
+Mixins must to be called using @include (scss) or + (sass)
+
+### vendor($property, $value)
+
+Add vendor prefixes to a property and provide the value for the property
+
+`@include vendor(box-shadow, 0 0 10px 0 #000);`
+
+Outputs:
+`-webkit-box-shadow: 0 0 10px 0 #000`
+`-moz-box-shadow: 0 0 10px 0 #000`
+`-ms-box-shadow: 0 0 10px 0 #000`
+`-o-box-shadow: 0 0 10px 0 #000`
+`box-shadow: 0 0 10px 0 #000`
+*/
+@mixin vendor($property, $value...) {
+	-webkit-#{$property}:	$value;
+	-moz-#{$property}:		$value;
+	-ms-#{$property}:		$value;
+	-o-#{$property}:		$value;
+	#{$property}:			$value;
+}
+
+/*
+### list-reset
+
+Resets current list only
+
+<pre>
+ul {
+	@include list-reset;
+}
+</pre>
+
+Outputs:
+<pre>
+ul {
+	margin: 0;
+	padding: 0;
+}
+ul > li {
+	list-style: none;
+	list-style-image: none;
+}
+</pre>
+*/
+@mixin list-reset {
+	margin: 0;
+	padding: 0;
+
+	> li {
+		list-style: none;
+		list-style-image: none;
+	}
+}
+
+/*
+### list-reset-full
+
+Reset current and all child lists
+
+<pre>
+ul {
+	@include list-reset-full;
+}
+</pre>
+
+Outputs:
+<pre>
+ul, ul ul, ul ol {
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	list-style: none;
+	list-style-image: none;
+}
+
+</pre>
+*/
+@mixin list-reset-full {
+	&, ul, ol {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
+		list-style-image: none;
+	}
+}
+
+/*
+### clearfix
+
+Clear an elements floated children
+
+<pre>
+div {
+	@include clearfix;
+}
+</pre>
+
+Outputs:
+<pre>
+div {
+	*zoom: 1;
+}
+div:before, div:after {
+	content: "";
+	display: table;
+}
+div:after {
+	clear: both;
+}
+</pre>
+*/
+@mixin clearfix {
+	&:before, &:after {
+		content: "";
+		display: table;
+	}
+
+    &:after { clear: both; }
+
+    *zoom: 1;
+}
+
+/*
+### keyframes($name)
+
+Set animation keyframes over multiple browser extensions
+
+<pre>
+.box {
+	@include keyframes(my-animation) {
+		0% { opacity: 0; }
+		100% { opacity: 1; }
+	}
+}
+</pre>
+
+Outputs:
+<pre>
+.box {
+	@-webkit-keyframes my-animation {
+	  0%   { opacity: 0; }
+	  100% { opacity: 1; }
+	}
+	@-moz-keyframes my-animation {
+	  0%   { opacity: 0; }
+	  100% { opacity: 1; }
+	}
+	@-ms-keyframes my-animation {
+	  0%   { opacity: 0; }
+	  100% { opacity: 1; }
+	}
+	@-o-keyframes my-animation {
+	  0%   { opacity: 0; }
+	  100% { opacity: 1; }
+	}
+	@keyframes my-animation {
+	  0%   { opacity: 0; }
+	  100% { opacity: 1; }
+	}
+}
+</pre>
+*/
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content
+	}
+	@-moz-keyframes #{$name} {
+		@content
+	}
+	@-ms-keyframes #{$name} {
+		@content
+	}
+	@-o-keyframes #{$name} {
+		@content
+	}
+	@keyframes #{$name} {
+		@content
+	}
+}
+
+/*
+### hidden-full
+
+Completely hide an element
+
+<pre>
+div {
+	@include hidden-full;
+}
+</pre>
+
+Outputs:
+<pre>
+div {
+	display: none !important;
+	visibility: hidden;
+}
+</pre>
+*/
+@mixin hidden-full {
+	display: none !important;
+	visibility: hidden;
+}
+
+/*
+### max($maxwidth: $width)
+
+A simple max-width media query
+
+<pre>
+div {
+	@include max(768px) {
+		display: none;
+	}
+}
+</pre>
+
+Outputs:
+<pre>
+@media (max-width: 768px) {
+	div {
+		display: none;
+	}
+}
+</pre>
+*/
+@mixin max($maxwidth: $width) {
+	@media (max-width: $maxwidth) {
+		@content
+	}
+}
+
+/*
+### min($minwidth: $width)
+
+A simple min-width media query
+
+<pre>
+div {
+	@include min(768px) {
+		display: block;
+	}
+}
+</pre>
+
+Outputs:
+<pre>
+@media (min-width: 768px) {
+	div {
+		display: block;
+	}
+}
+</pre>
+*/
+@mixin min($minwidth: $width) {
+	@media (min-width: $minwidth) {
+		@content
+	}
+}
+
+/*
+### pixel-ratio($pixelratio: 2, $basedpi: 96)
+
+A simple pixel-ratio media query
+
+$basedpi is used for fine control over the dpi query value
+
+<pre>
+div {
+	@include pixel-ratio {
+		background-image: url(image@2x.png);
+	}
+}
+</pre>
+
+Outputs:
+<pre>
+@media
+	(-webkit-min-device-pixel-ratio: 2),
+	(   min--moz-device-pixel-ratio: 2),
+	(     -o-min-device-pixel-ratio: 2/1),
+	(        min-device-pixel-ratio: 2),
+	(                min-resolution: 192dpi),
+	(                min-resolution: 2dppx) {
+		div {
+			background-image: url(image@2x.png);
+		}
+	}
+</pre>
+*/
+@mixin pixel-ratio($pixelratio: 2, $basedpi: 96) {
+	@media
+		(-webkit-min-device-pixel-ratio: $pixelratio),
+	  	(   min--moz-device-pixel-ratio: $pixelratio),
+	  	(     -o-min-device-pixel-ratio: $pixelratio/1),
+	  	(        min-device-pixel-ratio: $pixelratio),
+	  	(                min-resolution: #{$basedpi*$pixelratio}dpi),
+	  	(                min-resolution: #{$pixelratio}dppx) {
+			@content
+		}
+}
+
+/*
+### generate($width: 10px, $height: 10px, $position: static)
+
+Create generic styling for :before/:after
+
+$height / $width / $position all control their namesake CSS properties
+
+<pre>
+div:after {
+	@include generate;
+}
+</pre>
+
+Outputs:
+<pre>
+div:after {
+	content: "";
+	overflow: hidden;
+	text-indent: -9999em;
+	display: block;
+	width: 10px;
+	height: 10px;
+	position: static;
+}
+</pre>
+*/
+@mixin generate($width: 10px, $height: 10px, $position: static) {
+	content: "";
+	overflow: hidden;
+	text-indent: -9999em;
+	display: block;
+	width: $width;
+	height: $height;
+	position: $position;
+}
+
+/*
+### opacity($o: 0.5)
+
+Handle standard & IE opacity
+
+<pre>
+div {
+	@include opacity(.75);
+}
+</pre>
+
+Outputs:
+<pre>
+div {
+	opacity: .75;
+	filter: alpha(opacity=75);
+}
+</pre>
+*/
+@mixin opacity($o: 0.5) {
+	$mso: $o * 100;
+	opacity: $o;
+	filter: alpha(opacity=#{$mso});
+}
+
+
+/*
+### border-radius($val: 10px)
+
+Friendly interface to vendor(border-radius)
+*/
+@mixin border-radius($val: 10px) {
+	@include vendor(border-radius, $val);
+}
+
+/*
+### box-shadow($val: 0 0 10px #000)
+
+Friendly interface to vendor(box-shadow)
+Allows multiple comma separated values.
+*/
+@mixin box-shadow($val...) {
+	@include vendor(box-shadow, $val);
+}
+
+/*
+### gradient($direction:vertical, $start-color: #fff, $start-position: 0%, $end-color: #000, $end-position: 100%)
+
+Create horizontal / vertical gradients
+
+Note : Does not include IE9 data uri support
+
+<pre>
+div {
+	@include gradient($start-color: #F00, $end-color: #0F0);
+}
+</pre>
+
+Outputs:
+<pre>
+div {
+	background-image: -moz-linear-gradient(top, #F00 0%, #0F0 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F00), color-stop(100%, #0F0));
+	background-image: -webkit-linear-gradient(top, #F00 0%, #0F0 100%);
+	background-image: -o-linear-gradient(top, #F00 0%, #0F0 100%);
+	background-image: -ms-linear-gradient(top, #F00 0%, #0F0 100%);
+	background-image: linear-gradient(to bottom, #F00 0%, #0F0 100%);
+	background-repeat: repeat-y;
+}
+</pre>
+*/
+@mixin gradient($direction:vertical, $start-color: #fff, $start-position: 0%, $end-color: #000, $end-position: 100%) {
+	background-color: mix($start-color, $end-color);
+
+	@if $direction == horizontal {
+		background-image: -moz-linear-gradient(left, $start-color $start-position, $end-color $end-position);
+		background-image: -webkit-gradient(linear, left top, right top, color-stop($start-position,$start-color), color-stop($end-position, $end-color));
+		background-image: -webkit-linear-gradient(left,  $start-color $start-position, $end-color $end-position);
+		background-image: -o-linear-gradient(left, $start-color $start-position, $end-color $end-position);
+		background-image: -ms-linear-gradient(left, $start-color $start-position, $end-color $end-position);
+		background-image: linear-gradient(to right, $start-color $start-position, $end-color $end-position);
+		background-repeat: repeat-x;
+	}
+
+	@else if $direction == vertical {
+		background-image: -moz-linear-gradient(top, $start-color $start-position, $end-color $end-position);
+		background-image: -webkit-gradient(linear, left top, left bottom, color-stop($start-position, $start-color), color-stop($end-position, $end-color));
+		background-image: -webkit-linear-gradient(top, $start-color $start-position, $end-color $end-position);
+		background-image: -o-linear-gradient(top, $start-color $start-position, $end-color $end-position);
+		background-image: -ms-linear-gradient(top, $start-color $start-position, $end-color $end-position);
+		background-image: linear-gradient(to bottom, $start-color $start-position, $end-color $end-position);
+		background-repeat: repeat-y;
+	}
+}
+
+/*
+### transform($arguments)
+
+Friendly interface to vendor(transform) w/backface-visibility: hidden
+*/
+@mixin transform($arguments) {
+	@include vendor(transform, $arguments);
+	-webkit-backface-visibility: hidden;
+}
+
+/*
+### transition($arguments)
+
+Friendly interface to vendor(transition)
+*/
+@mixin transition($arguments...) {
+	@include vendor(transition, $arguments);
+}
+
+/*
+### perspective($val: 0)
+
+Friendly interface to vendor(perspective)
+*/
+@mixin perspective($val: 0) {
+	@include vendor(perspective, $val);
+}
+
+/*
+### perspective-origin($val: 50% 50%)
+
+Friendly interface to vendor(perspective-origin)
+*/
+@mixin perspective-origin($val: 50% 50%) {
+	@include vendor(perspective-origin, $val);
+}
+
+/*
+### transform-origin($val: 50% 50%)
+
+Friendly interface to vendor(transform-origin)
+*/
+@mixin transform-origin($val: 50% 50%) {
+	@include vendor(transform-origin, $val);
+}
+
+/*
+### transform-style($val: preserve-3d)
+
+Friendly interface to vendor(transform-style)
+*/
+@mixin transform-style($val: preserve-3d) {
+	@include vendor(transform-style, $val);
+}
+
+/*
+### Placeholders
+*/
+@mixin placeholder {
+	:-moz-placeholder {
+		@content
+	}
+	::-moz-placeholder {
+		@content
+	}
+	::-webkit-input-placeholder {
+		@content
+	}
+	:-ms-input-placeholder {
+		@content
+	}
+}
+
+
+/*
+### boxes($cols: 3, $gutter: 10px, $selector: ".col")
+
+Set the container and its children (as  selected by the selector argument) to be a set of columns.
+*/
+@mixin boxes($cols: 3, $gutter: 10px, $selector: ".col") {
+	margin-left: -$gutter;
+	margin-right: -$gutter;
+
+	#{$selector} {
+		float: left;
+		padding-left: $gutter;
+		padding-right: $gutter;
+		width: 100% / $cols;
+
+		&:nth-child(n) {
+			clear: none;
+		}
+
+		&:nth-child(#{$cols}n+1) {
+			clear: left;
+		}
+	}
+}
+
+
+@mixin valign($inner: ".inner") {
+	&:before {
+		content: "";
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+	}
+
+	#{$inner} {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+
+@mixin coverimage {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+
+/*
+## Extend
+
+Use these placeholder styles with @extend.
+
+### %debug
+
+Used to highlight items via background-color.
+Can be useful for debugging.
+*/
+%debug {
+  background-color: pink !important;
+}
+
+/*
+### %ellipsis
+
+If the element has overflowing text the text will be truncated and an ellipsis appended to the end.
+*/
+%ellipsis {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*
+### %ir
+
+Use when setting an element such as an input button to use a background-image.
+
+Not recommended to use this method unless necessary.
+Try and use appropriate elements where possible (`<input type="image" />` for example).
+*/
+%ir {
+  background-color: transparent;
+  border: 0;
+  color: transparent;
+  font: 0 / 0 a;
+  text-shadow: none;
+}
+
+/*
+### %clearfix
+
+@extend interface for @include clearfix;
+*/
+%clearfix {
+    @include clearfix;
+}
+
+/*
+### %list-reset
+
+@extend interface for @include list-reset;
+*/
+%list-reset {
+	@include list-reset;
+}
+
+
+/*
+### %list-reset-full
+
+@extend interface for @include list-reset-full;
+*/
+%list-reset-full {
+	@include list-reset-full;
+}

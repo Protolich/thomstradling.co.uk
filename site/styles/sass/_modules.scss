@@ -1,0 +1,252 @@
+﻿/*
+	=======
+	Modules
+	=======
+
+	Module level CSS should be placed in this file.
+	Modules are self-contained sections of markup.
+	Modules can exist with other modules.
+	Modules can often include objects.
+
+	EXAMPLES::
+
+	"Site Header" would be a module.
+
+	"Top Navigation" may exist within the "Site Header" markup but it is capable of existing as its own module and so should be done separately.
+*/
+
+
+/*
+	===========
+	Site Header
+	===========
+*/
+.header-site {
+	@extend .wrap;
+	border-bottom: 2px solid $colour-highlight;
+	padding: 20px 0;
+
+	.logo {
+		display: block;
+		margin-bottom: 20px;
+		text-align: center;
+
+		@include min(768px) {
+			display: inline-block;
+		}
+	}
+}
+/* Site Header */
+
+
+/*
+	===========
+	Site Footer
+	===========
+*/
+.footer-site {
+	@extend .wrap;
+	border-top: 1px solid $colour-highlight;
+	padding: 10px 0;
+}
+/* Site Footer */
+
+
+/*
+	==========
+	Navigation
+	==========
+*/
+.nav-main {
+	@extend %tablet-up;
+
+	> ul {
+		> li {
+			display: block;
+
+			@include min(768px) {
+				display: inline-block;
+			}
+
+			> a {
+				padding: 5px 0;
+
+				@include min(768px) {
+					padding: 0 10px;
+				}
+			}
+		}
+	}
+
+	ul {
+		ul {
+			padding-left: 10px;
+			@include min(768px) {
+				left: -999em;
+				padding-left: 0;
+				position: absolute;
+			}
+		}
+	}
+
+	li {
+		&:hover {
+			> ul {
+				left: auto;
+			}
+		}
+	}
+
+	a {
+		display: block;
+	}
+}
+
+.nav-select {
+	@extend %mobile-only;
+
+	select {
+		display: block;
+		width: 100%;
+	}
+}
+
+.nav-side {
+	ul {
+		ul {
+			padding-left: 10px;
+		}
+	}
+
+	a {
+		display: block;
+		padding: 5px 0;
+	}
+}
+/* Navigation */
+
+
+/*
+	======
+	Search
+	======
+*/
+.form-search {
+	@include min(768px) {
+		float: right;
+		width: 33.3333%;
+	}
+}
+/* Search */
+
+
+/*
+	========
+	Carousel
+	========
+*/
+.carousel {
+	.carousel-item {
+		height: 200px;
+
+		@include min(768px) {
+			height: 300px;
+		}
+
+		&.item-1 {
+			background: #FCC;
+		}
+		&.item-2 {
+			background: #CFC;
+		}
+		&.item-3 {
+			background: #CCF;
+		}
+		&.item-4 {
+			background: #FCF;
+		}
+	}
+
+	.slick-next {
+		right: 10px;
+	}
+
+	.slick-prev {
+		left: 10px;
+	}
+
+	.wrap {
+		height: 200px;
+
+		@include min(768px) {
+			height: 300px;
+		}
+
+		@include valign(".text");
+	}
+
+	.text {
+		background: rgba(255,255,255,0.5);
+		padding: 10px;
+		width: 33.3333%;
+	}
+}
+/* Carousel */
+
+
+/*
+	===========
+	Breadcrumbs
+	===========
+*/
+.breadcrumbs {
+	padding: 1em 0;
+}
+/* Breadcrumbs */
+
+
+/*
+	==========
+	Home Boxes
+	==========
+*/
+.home-boxes {
+	@extend %clearfix;
+
+	@include min(768px) {
+		@include boxes(3);
+	}
+
+	.col {
+		margin-bottom: 10px;
+	}
+
+	.inner {
+		background: #EEF;
+	}
+}
+/* Home Boxes */
+
+
+/*
+	========
+	Articles
+	========
+*/
+.post {
+	@extend %clearfix;
+
+	.image {
+		@include min(768px) {
+			float: left;
+			max-width: 180px;
+		}
+
+		+ .text {
+			@include min(768px) {
+				margin-left: 200px;
+			}
+		}
+	}
+}
+/* Articles */

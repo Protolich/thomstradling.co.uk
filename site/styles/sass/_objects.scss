@@ -1,0 +1,536 @@
+﻿/*
+##  Object styles (_objects)
+
+### Images
+*/
+img {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+
+	.oldie & { max-width: none; }
+
+	&.right {
+		float: right;
+		margin: 0 0 16px 16px;
+	}
+	&.left {
+		float: left;
+		margin: 0 16px 16px 0;
+	}
+
+	&[style*="left"] {
+		margin: 0 16px 16px 0;
+	}
+	&[style*="right"] {
+		margin: 0 0 16px 16px;
+	}
+}
+
+
+// ----- Buttons ----- //
+
+.button {
+	background: $colour-highlight;
+	border: none;
+	@include border-radius(5px);
+	color: #FFF;
+	display: inline-block;
+	padding: .5em 1em;
+	text-decoration: none;
+	@include transition(background-color .3s linear);
+
+	&:hover {
+		background: darken($colour-highlight, 20%);
+	}
+}
+
+// ----- Links ----- //
+
+.lnk {  }
+
+// ----- Video ----- //
+
+.video {
+	padding-bottom: 56.25%;
+	position: relative;
+	width: 100%;
+
+	iframe {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+
+// ----- Overlays ----- //
+
+.overlay {
+	background: url(/site/images/black-50.png);
+	background: rgba(0, 0, 0, 0.5);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+	@include transition(opacity .3s linear);
+}
+.overlay-box {
+	background: #FFF;
+	display: none;
+	left: 50%;
+	margin-left: -250px;
+	padding: 10px;
+	position: absolute;
+	width: 500px;
+	z-index: 101;
+}
+
+
+// ----- Overlays ----- //
+
+.cookie {
+	height: 0;
+	line-height: 30px;
+	overflow: hidden;
+	position: relative;
+	background: $colour-base;
+	@include transition(height .3s linear);
+
+	&,
+	a {
+		color: #FFF;
+	}
+
+	a {
+		font-weight: 700;
+	}
+
+	.inner {
+		text-align: center;
+		border-bottom: 1px solid $colour-base;
+	}
+
+	.lnk-accept-cookies {
+		cursor: pointer;
+		margin-left: 10px;
+	}
+
+	&.show {
+		height: 32px;
+	}
+	&.hide {
+		display: none !important;
+		visibility: hidden;
+	}
+}
+
+
+// ----- Inputs ----- //
+textarea,
+[type="text"],
+[type="password"],
+[type="datetime"],
+[type="datetime-local"],
+[type="date"],
+[type="month"],
+[type="time"],
+[type="week"],
+[type="number"],
+[type="email"],
+[type="url"],
+[type="search"],
+[type="tel"],
+[type="color"] {
+	border: 1px solid #CCC;
+	@include border-radius(5px);
+	padding: 5px;
+	width: 100%;
+}
+
+select {
+	width: 100%;
+}
+
+.checkbox,
+.radiobutton {
+	label {
+		margin-left: 3px;
+		vertical-align: middle;
+	}
+	input { vertical-align:middle; }
+}
+
+@include placeholder {
+	color: #999;
+	opacity: .25;
+}
+
+// ----- Nice Select ----- //
+.niceselect-wrapper {
+	background: #FFF;
+	border: 1px solid #000;
+	display: block;
+	height: em(30);
+	line-height: lh(28);
+	overflow: hidden;
+	padding: 0 10px;
+	position: relative;
+	z-index: 1;
+
+	&.focus,
+	&:hover { border: 1px solid #333; } /* This is applied when the user tabs to focus or hovers on a nice select element */
+
+	&:after {
+		border-top: 5px solid #000;
+		border-right: 5px solid transparent;
+		border-left: 5px solid transparent;
+		content: "^";
+		display: block;
+		height: 0;
+		margin-top: -3px;
+		position: absolute;
+		right: 1em;
+		text-indent: -99999em;
+		top: 50%;
+		width: 0;
+		z-index: 5;
+	} /* Creates the arrow and positions it to the right */
+
+	.niceselect-text { display: block; } /* Make sure the line-height matches the height of .niceSelect including padding */
+
+	select {
+		border: 1px solid #eee;
+		bottom: 0;
+		display: block;
+		height: 100%;
+		left: 0;
+		@include opacity(0);
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		z-index: 10;
+	} /* The height must match the overall height of .niceSelect including padding */
+}
+
+
+// ----- Forms ----- //
+
+.form-item {
+	@extend %clearfix;
+	margin-bottom: 10px;
+
+	label {
+		display: block;
+	}
+
+	.input {
+
+	}
+}
+
+.form-buttons {
+	margin-bottom: 10px;
+	text-align: right;
+}
+
+.form-errors {
+	background: #FEE;
+	border: 1px solid #F00;
+	color: #F00;
+	padding: 10px;
+
+	:last-child {
+		margin-bottom: 0;
+	}
+}
+
+
+// ----- Carousel ----- //
+.carousel-wrap {
+	overflow: hidden;
+	position: relative;
+
+	.carousel {
+		@extend %list-reset;
+		position: relative; }
+
+	.carousel-item { float: left; }
+}
+
+
+// ----- Big Target ----- //
+.hover { cursor: pointer; }
+
+// ----- Templates ----- //
+
+
+// ----- Editor Styles ----- //
+
+.small { font-size: em(9); }
+.xsmall { font-size: em(8); }
+.large { font-size: em(14); }
+.xlarge { font-size: em(16); }
+
+
+// ----- Forms ----- //
+
+[class^=form-] {
+
+}
+
+
+// ----- iFrames ----- //
+
+iframe {
+
+}
+
+
+// ----- Tables ----- //
+
+.gt-ie9 .tbl-mobile {
+  @media only screen and (max-width: 768px){
+	&, table, tbody, tr, td { display: block; }
+	thead, th { display: none; }
+  }
+}
+
+
+// ----- Plugin Styling ----- //
+
+/* ShareThis */
+.sharethis {
+	span {
+		@include vendor(box-sizing, content-box);
+	}
+}
+
+/* Slider */
+
+.slick-slider {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-ms-touch-action: none;
+	touch-action: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.slick-list {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	margin: 0;
+	padding: 0;
+
+	&:focus {
+		outline: none;
+	}
+
+	.slick-loading & {
+		background: #fff url(/site/images/ajax-loader.gif) center center no-repeat;
+	}
+
+	&.dragging {
+		cursor: pointer;
+		cursor: hand;
+	}
+}
+.slick-slider .slick-list,
+.slick-track,
+.slick-slide,
+.slick-slide img {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+.slick-track {
+	position: relative;
+	left: 0;
+	top: 0;
+	display: block;
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+	.slick-loading & {
+		visibility: hidden;
+	}
+}
+.slick-slide {
+	float: left;
+	height: 100%;
+	min-height: 1px;
+	img {
+		display: block;
+		&.slick-loading {
+			background: white url(/site/images/ajax-loader.gif) center center no-repeat;
+			padding-bottom: 100%;
+		}
+	}
+
+	display: none;
+
+	&.dragging img {
+		pointer-events: none;
+	}
+
+	.slick-initialized & {
+		display: block;
+	}
+
+	.slick-loading & {
+		visibility: hidden;
+	}
+
+	.slick-vertical & {
+		display: block;
+		height: auto;
+		border: 1px solid transparent;
+	}
+}
+
+/* Icons */
+ @font-face {
+	font-family:"slick";
+	src:url("/site/fonts/slick.eot");
+	src:url("/site/fonts/slick.eot?#iefix") format("embedded-opentype"), url("/site/fonts/slick.woff") format("woff"), url("/site/fonts/slick.ttf") format("truetype"), url("/site/fonts/slick.svg#slick") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+	position: absolute;
+	display: block;
+	height: 20px;
+	width: 20px;
+	line-height: 0;
+	font-size: 0;
+	cursor: pointer;
+	background: transparent;
+	color: transparent;
+	top: 50%;
+	margin-top: -10px;
+	padding: 0;
+	border: none;
+	outline: none;
+	&:focus {
+		outline: none;
+	}
+	&.slick-disabled:before {
+		opacity: 0.25;
+	}
+}
+.slick-prev:before, .slick-next:before {
+	font-family:"slick";
+	font-size: 20px;
+	line-height: 1;
+	color: white;
+	opacity: 0.85;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.slick-prev {
+	left: -25px;
+	&:before {
+		content:'\8592';
+	}
+}
+.slick-next {
+	right: -25px;
+	&:before {
+		content:'\8594';
+	}
+}
+
+/* Dots */
+
+.slick-slider {
+	margin-bottom: 30px;
+}
+.slick-dots {
+	position: absolute;
+	bottom: -45px;
+	list-style: none;
+	display: block;
+	text-align: center;
+	padding: 0px;
+	width: 100%;
+
+	li {
+		position: relative;
+		display: inline-block;
+		height: 20px;
+		width: 20px;
+		margin: 0px 5px;
+		padding: 0px;
+		cursor: pointer;
+
+		button {
+			border: 0;
+			background: transparent;
+			display: block;
+			height: 20px;
+			width: 20px;
+			outline: none;
+			line-height: 0;
+			font-size: 0;
+			color: transparent;
+			padding: 5px;
+			cursor: pointer;
+			outline: none;
+			&:focus {
+				outline: none;
+			}
+
+			&:before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				content:'\8226';
+				width: 20px;
+				height: 20px;
+				font-family:"slick";
+				font-size: 6px;
+				line-height: 20px;
+				text-align: center;
+				color: black;
+				opacity: 0.25;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+
+		}
+
+		&.slick-active button:before {
+			opacity: 0.75;
+		}
+	}
+}
