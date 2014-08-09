@@ -9,6 +9,16 @@
       0 => 1,
       1 => 2,
     ),
+    2 => 
+    array (
+      0 => 3,
+    ),
+  ),
+  'aliasMap' => 
+  array (
+    'index.html' => 1,
+    'blog/' => 2,
+    'blog/2014/08/09/blog/' => 3,
   ),
   'webLinkMap' => 
   array (

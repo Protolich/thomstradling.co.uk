@@ -7,6 +7,9 @@
   'resourceMap' => 
   array (
   ),
+  'aliasMap' => 
+  array (
+  ),
   'webLinkMap' => 
   array (
   ),

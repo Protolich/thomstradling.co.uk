@@ -37,7 +37,7 @@
     'sortby' => 'publishedon',
     'sortdir' => 'DESC',
     'tpl' => 'sample.ArticleRowTpl',
-    'total' => false,
+    'total' => 1,
     'pageOneLimit' => 10,
     'actualLimit' => 10,
     'toPlaceholder' => '',
@@ -53,8 +53,21 @@
     ),
     'pageCount' => 1,
     'firstItem' => 1,
-    'lastItem' => 0,
+    'lastItem' => 1,
     'pageUrl' => 'blog/',
   ),
-  'output' => '',
+  'output' => '<div class="post">
+    <h2 class="title"><a href="blog/2014/08/09/blog/">Blog</a></h2>
+    <p class="post-info">Posted by <a href="blog/author/admin">admin</a> </p>
+    <div class="entry">
+	    <p>Test summary</p>
+    </div>
+    <p class="postmeta">
+      <span class="links">
+        <a href="blog/2014/08/09/blog/" class="readmore">Read more</a>
+        | <a href="blog/2014/08/09/blog/#comments" class="comments">Comments (0)</a>
+        | <span class="date">Aug 09, 2014</span>
+      </span>
+    </p>
+</div>',
 );

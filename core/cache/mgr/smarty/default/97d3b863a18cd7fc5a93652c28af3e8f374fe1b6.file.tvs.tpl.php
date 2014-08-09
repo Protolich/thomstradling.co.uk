@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.4, created on 2014-08-05 20:02:27
+<?php /* Smarty version Smarty-3.0.4, created on 2014-08-08 18:43:23
          compiled from "/srv/www/thomstradling.co.uk/public_html/manager/templates/default/resource/sections/tvs.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:23777988853e12a43506434-32991077%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:55267091153e50c3b3b42b8-05333417%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '97d3b863a18cd7fc5a93652c28af3e8f374fe1b6' => 
     array (
       0 => '/srv/www/thomstradling.co.uk/public_html/manager/templates/default/resource/sections/tvs.tpl',
-      1 => 1407233389,
+      1 => 1407269339,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '23777988853e12a43506434-32991077',
+  'nocache_hash' => '55267091153e50c3b3b42b8-05333417',
   'function' => 
   array (
   ),
