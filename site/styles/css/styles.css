@@ -809,12 +809,13 @@ button,
 input,
 select,
 textarea {
-  color: #333333;
+  color: #36454f;
 }
 
 body.site {
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.8125em;
+  font-weight: 300;
   line-height: 1.4;
 }
 
@@ -858,7 +859,11 @@ textarea {
  * Text Reset
  */
 h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
   margin: 0 0 .5em;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: inherit;
 }
 
 p {
@@ -869,7 +874,8 @@ p {
  * Links
  */
 a {
-  color: #333399;
+  color: #cc7877;
+  text-decoration: none;
 }
 
 /* Text Alignment */
@@ -1063,7 +1069,7 @@ img[style*="right"] {
   line-height: 30px;
   overflow: hidden;
   position: relative;
-  background: #333333;
+  background: #36454f;
   -webkit-transition: height 0.3s linear;
   -moz-transition: height 0.3s linear;
   -ms-transition: height 0.3s linear;
@@ -1079,7 +1085,7 @@ img[style*="right"] {
 }
 .cookie .inner {
   text-align: center;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #36454f;
 }
 .cookie .lnk-accept-cookies {
   cursor: pointer;
@@ -1770,13 +1776,16 @@ select {
 	===========
 */
 .header-site {
-  border-bottom: 2px solid #3366ff;
+  border-bottom: 1px solid rgba(54, 69, 79, 0.5);
   padding: 20px 0;
 }
 .header-site .logo {
+  color: #36454f;
   display: block;
-  margin-bottom: 20px;
+  font-size: 4.61538em;
+  font-weight: 300;
   text-align: center;
+  text-decoration: none;
 }
 @media (min-width: 768px) {
   .header-site .logo {
@@ -1963,6 +1972,13 @@ select {
 	Articles
 	========
 */
+.post {
+  border-bottom: 1px solid rgba(54, 69, 79, 0.5);
+  padding: 20px 0;
+}
+.post :last-child {
+  margin-bottom: 0;
+}
 @media (min-width: 768px) {
   .post .image {
     float: left;

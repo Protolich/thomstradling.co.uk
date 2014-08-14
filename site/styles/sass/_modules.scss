@@ -23,13 +23,16 @@
 */
 .header-site {
 	@extend .wrap;
-	border-bottom: 2px solid $colour-highlight;
+	border-bottom: 1px solid transparentize($colour-base, 0.5);
 	padding: 20px 0;
 
 	.logo {
+		color: $colour-base;
 		display: block;
-		margin-bottom: 20px;
+		font-size: em(60);
+		font-weight: 300;
 		text-align: center;
+		text-decoration: none;
 
 		@include min(768px) {
 			display: inline-block;
@@ -235,6 +238,12 @@
 */
 .post {
 	@extend %clearfix;
+	border-bottom: 1px solid transparentize($colour-base, 0.5);
+	padding: 20px 0;
+
+	:last-child {
+		margin-bottom: 0;
+	}
 
 	.image {
 		@include min(768px) {
