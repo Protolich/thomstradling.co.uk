@@ -31,8 +31,8 @@ img {
 // ----- Buttons ----- //
 
 .button {
-	background: $colour-highlight;
-	border: none;
+	background: transparent;
+	border: 1px solid $colour-base;
 	@include border-radius(5px);
 	color: #FFF;
 	display: inline-block;
@@ -43,6 +43,18 @@ img {
 	&:hover {
 		background: darken($colour-highlight, 20%);
 	}
+}
+
+.button-primary {
+	@extend .button;
+	background: $colour-highlight;
+	border-color: $colour-highlight;
+}
+
+.button-cancel {
+	@extend .button;
+	background: $colour-base;
+	border-color: $colour-base;
 }
 
 // ----- Links ----- //

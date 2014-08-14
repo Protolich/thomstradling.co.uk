@@ -1262,9 +1262,9 @@ img[style*="right"] {
   margin: 0 0 16px 16px;
 }
 
-.button {
-  background: #3366ff;
-  border: none;
+.button, .button-primary, .button-cancel {
+  background: transparent;
+  border: 1px solid #36454f;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -1280,8 +1280,18 @@ img[style*="right"] {
   -o-transition: background-color 0.3s linear;
   transition: background-color 0.3s linear;
 }
-.button:hover {
+.button:hover, .button-primary:hover, .button-cancel:hover {
   background: #0033cc;
+}
+
+.button-primary {
+  background: #3366ff;
+  border-color: #3366ff;
+}
+
+.button-cancel {
+  background: #36454f;
+  border-color: #36454f;
 }
 
 .video {
