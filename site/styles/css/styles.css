@@ -440,14 +440,14 @@ Try and use appropriate elements where possible (`<input type="image" />` for ex
 
 @extend interface for @include clearfix;
 */
-.form-item, .wrap, .header-site, .footer-site, .home-boxes, .post {
+.form-item, .wrap, .header-site, .footer-site, .split-3, .home-boxes, .post {
   *zoom: 1;
 }
-.form-item:before, .wrap:before, .header-site:before, .footer-site:before, .home-boxes:before, .post:before, .form-item:after, .wrap:after, .header-site:after, .footer-site:after, .home-boxes:after, .post:after {
+.form-item:before, .wrap:before, .header-site:before, .footer-site:before, .split-3:before, .home-boxes:before, .post:before, .form-item:after, .wrap:after, .header-site:after, .footer-site:after, .split-3:after, .home-boxes:after, .post:after {
   content: "";
   display: table;
 }
-.form-item:after, .wrap:after, .header-site:after, .footer-site:after, .home-boxes:after, .post:after {
+.form-item:after, .wrap:after, .header-site:after, .footer-site:after, .split-3:after, .home-boxes:after, .post:after {
   clear: both;
 }
 
@@ -1008,7 +1008,6 @@ img[style*="right"] {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  color: #FFF;
   display: inline-block;
   padding: .5em 1em;
   text-decoration: none;
@@ -1019,17 +1018,19 @@ img[style*="right"] {
   transition: background-color 0.3s linear;
 }
 .button:hover, .button-primary:hover, .button-cancel:hover {
-  background: #0033cc;
+  background: #a13d3c;
 }
 
 .button-primary {
-  background: #3366ff;
-  border-color: #3366ff;
+  background: #cc7877;
+  border-color: #cc7877;
+  color: #FFF;
 }
 
 .button-cancel {
   background: #36454f;
   border-color: #36454f;
+  color: #FFF;
 }
 
 .video {
@@ -1124,7 +1125,7 @@ textarea,
 [type="search"],
 [type="tel"],
 [type="color"] {
-  border: 1px solid #CCC;
+  border: 1px solid #36454f;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -1764,6 +1765,33 @@ select {
   }
 }
 
+.split-3 {
+  margin-left: -6px;
+  margin-right: -6px;
+}
+.split-3 .col-1,
+.split-3 .col-2,
+.split-3 .col-3 {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+@media (min-width: 768px) {
+  .split-3 .col-1,
+  .split-3 .col-2 {
+    float: left;
+  }
+}
+@media (min-width: 768px) {
+  .split-3 .col-1 {
+    width: 33.33333%;
+  }
+}
+@media (min-width: 768px) {
+  .split-3 .col-2 {
+    width: 66.66667%;
+  }
+}
+
 /*
 	=======
 	Modules
@@ -1810,7 +1838,7 @@ select {
 	===========
 */
 .footer-site {
-  border-top: 1px solid #3366ff;
+  border-top: 1px solid #cc7877;
   padding: 10px 0;
 }
 

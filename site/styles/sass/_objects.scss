@@ -34,7 +34,6 @@ img {
 	background: transparent;
 	border: 1px solid $colour-base;
 	@include border-radius(5px);
-	color: #FFF;
 	display: inline-block;
 	padding: .5em 1em;
 	text-decoration: none;
@@ -49,12 +48,14 @@ img {
 	@extend .button;
 	background: $colour-highlight;
 	border-color: $colour-highlight;
+	color: #FFF;
 }
 
 .button-cancel {
 	@extend .button;
 	background: $colour-base;
 	border-color: $colour-base;
+	color: #FFF;
 }
 
 // ----- Links ----- //
@@ -160,7 +161,7 @@ textarea,
 [type="search"],
 [type="tel"],
 [type="color"] {
-	border: 1px solid #CCC;
+	border: 1px solid $colour-base;
 	@include border-radius(5px);
 	padding: 5px;
 	width: 100%;
