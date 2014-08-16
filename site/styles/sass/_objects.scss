@@ -247,13 +247,13 @@ select {
 
 .checkbox,
 .radiobutton {
-	label {
-		margin-left: 3px;
-		vertical-align: middle;
-	}
+	label,
 	input {
 		display: inline-block;
 		vertical-align: middle;
+	}
+	label {
+		margin-left: 3px;
 	}
 }
 

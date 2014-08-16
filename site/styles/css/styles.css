@@ -1221,14 +1221,15 @@ select {
 }
 
 .checkbox label,
-.radiobutton label {
-  margin-left: 3px;
-  vertical-align: middle;
-}
 .checkbox input,
+.radiobutton label,
 .radiobutton input {
   display: inline-block;
   vertical-align: middle;
+}
+.checkbox label,
+.radiobutton label {
+  margin-left: 3px;
 }
 
 .form-buttons {
@@ -2031,6 +2032,10 @@ select {
   .post .image + .text {
     margin-left: 200px;
   }
+}
+
+.form-comment textarea {
+  height: 101px;
 }
 
 /* Articles */
