@@ -24,9 +24,9 @@
 				[[+error.website:notempty=`<span class="error">[[+error.website]]</span>`]]
 			</div>
 
-			<div class="form-item">
+			<div class="form-item checkbox">
 				<label for="quip-comment-notify-[[+idprefix]]">[[%quip.notify_me]]:<span class="error">[[+error.notify]]</span></label>
-				<input type="checkbox" value="1" name="notify" id="quip-comment-notify-[[+idprefix]]" [[+notify:if=`[[+notify]]`:eq=`1`:then=`checked="checked"`]] />
+				<input type="checkbox" value="1" name="notify" id="quip-comment-notify-[[+idprefix]]" [[+notify:if=`[[+notify]]`:eq=`1`:then=`checked="checked"`]]>
 			</div>
 
 			<div class="form-item recaptcha">
@@ -36,8 +36,8 @@
 		</div>
 
 		<div class="col-2">
-			<p><span class="quip-allowed-tags">[[%quip.allowed_tags? &tags=`[[++quip.allowed_tags:htmlent]]`]]</span>[[%quip.comment_add_new]]<span class="quip-error">[[+error.comment]]</span></p>
 			<textarea name="comment" id="quip-comment-box-[[+idprefix]]" rows="5">[[+comment]]</textarea>
+			<p><span class="quip-allowed-tags">[[%quip.allowed_tags? &tags=`[[++quip.allowed_tags:htmlent]]`]]</span>[[%quip.comment_add_new]]<span class="quip-error">[[+error.comment]]</span></p>
 		</div>
 	</div>
 

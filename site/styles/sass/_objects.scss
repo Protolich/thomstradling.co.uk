@@ -171,15 +171,6 @@ select {
 	width: 100%;
 }
 
-.checkbox,
-.radiobutton {
-	label {
-		margin-left: 3px;
-		vertical-align: middle;
-	}
-	input { vertical-align:middle; }
-}
-
 @include placeholder {
 	color: #999;
 	opacity: .25;
@@ -246,6 +237,19 @@ select {
 
 	.input {
 
+	}
+}
+
+
+.checkbox,
+.radiobutton {
+	label {
+		margin-left: 3px;
+		vertical-align: middle;
+	}
+	input {
+		display: inline-block;
+		vertical-align: middle;
 	}
 }
 

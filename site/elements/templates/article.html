@@ -1,6 +1,7 @@
 [[$head]]
 
 <div class="wrap">
+	<article class="content">
 	<p class="post-info">
 		<span>Posted on [[*publishedon:strtotime:date=`%b %d, %Y`]] by <a href="[[~[[*parent]]]]author/[[*publishedby:userinfo=`username`]]">[[*publishedby:userinfo=`username`]]</a></span>
 		[[*articlestags:notempty=`<span class="tags">&nbsp;| Tags: [[+article_tags]]</span>`]]
@@ -16,6 +17,7 @@
 		[[+comments_form]]
 	</div>
 	`]]
+	</article> <!-- .content -->
 </div>
 
 [[$foot]]

@@ -1139,16 +1139,6 @@ select {
   width: 100%;
 }
 
-.checkbox label,
-.radiobutton label {
-  margin-left: 3px;
-  vertical-align: middle;
-}
-.checkbox input,
-.radiobutton input {
-  vertical-align: middle;
-}
-
 :-moz-placeholder {
   color: #999;
   opacity: .25;
@@ -1225,6 +1215,17 @@ select {
 }
 .form-item label {
   display: block;
+}
+
+.checkbox label,
+.radiobutton label {
+  margin-left: 3px;
+  vertical-align: middle;
+}
+.checkbox input,
+.radiobutton input {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .form-buttons {
