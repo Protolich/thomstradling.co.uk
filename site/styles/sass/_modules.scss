@@ -63,6 +63,7 @@
 .nav-main {
 	@extend %tablet-up;
 	border-bottom: 1px solid transparentize($colour-base, 0.5);
+	padding: 20px 0;
 
 	> ul {
 		> li {
