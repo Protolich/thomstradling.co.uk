@@ -1018,13 +1018,16 @@ img[style*="right"] {
   transition: background-color 0.3s linear;
 }
 .button:hover, .button-primary:hover, .button-cancel:hover {
-  background: #a13d3c;
+  background: #EEE;
 }
 
 .button-primary {
   background: #cc7877;
   border-color: #cc7877;
   color: #FFF;
+}
+.button-primary:hover {
+  background: #a13d3c;
 }
 
 .button-cancel {
