@@ -2039,6 +2039,16 @@ select {
 }
 
 /* Articles */
+/*
+	=======
+	Content
+	=======
+*/
+.content {
+  padding: 24px 0;
+}
+
+/* Content */
 html {
   font-size: 0.8125em;
   line-height: 1.4;
