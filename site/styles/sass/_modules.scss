@@ -64,7 +64,7 @@
 	@extend %tablet-up;
 	@extend .wrap;
 	border-bottom: 1px solid transparentize($colour-base, 0.5);
-	padding: 20px 0;
+	padding: 10px 0;
 
 	> ul {
 		> li {
@@ -288,6 +288,6 @@
 	=======
 */
 .content {
-	padding: 24px 0;
+	padding: 20px 0;
 }
 /* Content */

@@ -33,7 +33,7 @@ img {
 .button {
 	background: transparent;
 	border: 1px solid $colour-base;
-	@include border-radius(5px);
+	@include border-radius(3px);
 	display: inline-block;
 	padding: .5em 1em;
 	text-decoration: none;
@@ -47,7 +47,7 @@ img {
 .button-primary {
 	@extend .button;
 	background: $colour-highlight;
-	border-color: $colour-highlight;
+	border-color: darken($colour-highlight, 20%);
 	color: #FFF;
 
 	&:hover {
@@ -165,8 +165,9 @@ textarea,
 [type="search"],
 [type="tel"],
 [type="color"] {
-	border: 1px solid $colour-base;
-	@include border-radius(5px);
+	border: 1px solid lighten($colour-base, 44%);
+	border-color: transparentize($colour-base, 0.5);
+	@include border-radius(3px);
 	padding: 5px;
 	width: 100%;
 }
