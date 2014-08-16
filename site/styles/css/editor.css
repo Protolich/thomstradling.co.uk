@@ -440,14 +440,14 @@ Try and use appropriate elements where possible (`<input type="image" />` for ex
 
 @extend interface for @include clearfix;
 */
-.wrap, .header-site, .footer-site, .split-3, .form-item, .home-boxes, .post {
+.wrap, .header-site, .footer-site, .nav-main, .split-3, .form-item, .home-boxes, .post {
   *zoom: 1;
 }
-.wrap:before, .header-site:before, .footer-site:before, .split-3:before, .form-item:before, .home-boxes:before, .post:before, .wrap:after, .header-site:after, .footer-site:after, .split-3:after, .form-item:after, .home-boxes:after, .post:after {
+.wrap:before, .header-site:before, .footer-site:before, .nav-main:before, .split-3:before, .form-item:before, .home-boxes:before, .post:before, .wrap:after, .header-site:after, .footer-site:after, .nav-main:after, .split-3:after, .form-item:after, .home-boxes:after, .post:after {
   content: "";
   display: table;
 }
-.wrap:after, .header-site:after, .footer-site:after, .split-3:after, .form-item:after, .home-boxes:after, .post:after {
+.wrap:after, .header-site:after, .footer-site:after, .nav-main:after, .split-3:after, .form-item:after, .home-boxes:after, .post:after {
   clear: both;
 }
 
@@ -997,13 +997,13 @@ a {
   width: 100%;
 }
 
-.wrap, .header-site, .footer-site {
+.wrap, .header-site, .footer-site, .nav-main {
   margin-left: 5%;
   margin-right: 5%;
   width: 90%;
 }
 @media (min-width: 1056px) {
-  .wrap, .header-site, .footer-site {
+  .wrap, .header-site, .footer-site, .nav-main {
     margin: auto;
     width: 960px;
   }
@@ -1954,21 +1954,21 @@ select {
 .carousel .slick-prev {
   left: 10px;
 }
-.carousel .wrap, .carousel .header-site, .carousel .footer-site {
+.carousel .wrap, .carousel .header-site, .carousel .footer-site, .carousel .nav-main {
   height: 200px;
 }
 @media (min-width: 768px) {
-  .carousel .wrap, .carousel .header-site, .carousel .footer-site {
+  .carousel .wrap, .carousel .header-site, .carousel .footer-site, .carousel .nav-main {
     height: 300px;
   }
 }
-.carousel .wrap:before, .carousel .header-site:before, .carousel .footer-site:before {
+.carousel .wrap:before, .carousel .header-site:before, .carousel .footer-site:before, .carousel .nav-main:before {
   content: "";
   display: inline-block;
   vertical-align: middle;
   height: 100%;
 }
-.carousel .wrap .text, .carousel .header-site .text, .carousel .footer-site .text {
+.carousel .wrap .text, .carousel .header-site .text, .carousel .footer-site .text, .carousel .nav-main .text {
   display: inline-block;
   vertical-align: middle;
 }
