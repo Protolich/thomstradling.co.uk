@@ -499,7 +499,7 @@ template {
 
 .slide-1 {
   background-color: #FFC;
-  background-image: url(/assets/components/thomstradling.co.uk/images/bournemouth.jpg);
+  background-image: url(/images/bournemouth.jpg);
   align-items: center;
 }
 .slide-1 .slide_inner {
@@ -509,18 +509,18 @@ template {
 
 .slide-2 {
   background-color: #CFF;
-  background-image: url(/assets/components/thomstradling.co.uk/images/profile.jpg);
+  background-image: url(/images/profile.jpg);
   align-items: center;
 }
 
 .slide-3 {
   background-color: #FCF;
-  background-image: url(/assets/components/thomstradling.co.uk/images/work.jpg);
+  background-image: url(/images/work.jpg);
 }
 
 .slide-4 {
   background-color: #CFC;
-  background-image: url(/assets/components/thomstradling.co.uk/images/mail.jpg);
+  background-image: url(/images/mail.jpg);
 }
 
 /*!
@@ -531,8 +531,8 @@ template {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.7.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  src: url("/assets/components/thomstradling.co.uk/fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("/assets/components/thomstradling.co.uk/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("/assets/components/thomstradling.co.uk/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("/assets/components/thomstradling.co.uk/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("/assets/components/thomstradling.co.uk/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("/assets/components/thomstradling.co.uk/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -3713,7 +3713,7 @@ nav span {
   background-position: center center;
   background-size: 36px 36px;
   box-shadow: 0 0 0 transparent;
-  color: #000;
+  color: #E37222;
   display: none;
   font-size: 10px;
   font-weight: 700;
@@ -3729,6 +3729,10 @@ nav span {
   transform: translateY(-50%);
   transition: all 0.5s;
 }
+.nav-button:hover, .nav-button:focus {
+  background-color: #E37222;
+  color: #FFF;
+}
 @media (min-width: 768px) {
   .nav-button {
     display: block;
@@ -3738,17 +3742,14 @@ nav span {
   box-shadow: 0 0 5px #F00;
   outline: none;
 }
-.nav-button[data-index="1"] {
-  background-image: url(/assets/components/thomstradling.co.uk/images/icons/home.svg);
-}
-.nav-button[data-index="2"] {
-  background-image: url(/assets/components/thomstradling.co.uk/images/icons/user-shape.svg);
-}
-.nav-button[data-index="3"] {
-  background-image: url(/assets/components/thomstradling.co.uk/images/icons/thumbs-up.svg);
-}
-.nav-button[data-index="4"] {
-  background-image: url(/assets/components/thomstradling.co.uk/images/icons/envelope.svg);
+.nav-button i {
+  display: block;
+  font-size: 40px;
+  position: absolute;
+  top: 28px;
+  left: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .nav-button-next {

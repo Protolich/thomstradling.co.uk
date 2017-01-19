@@ -1,0 +1,50 @@
+$colour-primary: #000;
+$colour-secondary: #00B2A6;
+
+//
+$colour-primary: #144C72;
+$colour-primary_contr: #FFF;
+$colour-secondary: #84B541;
+$colour-primary_contr: #FFF;
+
+$colour-1: #0A2B3B;
+$colour-1_contr: #FFF;
+
+$colour-2: #2CB3D2;
+$colour-2_contr: #FFF;
+
+$colour-3: #F7E71B;
+$colour-3_contr: #000;
+
+//
+// E37222
+// 07889B
+// 66B9BF
+// EEAA7B
+$colour-primary: #E37222;
+$colour-primary_contr: #FFF;
+$colour-secondary: #07889B;
+$colour-secondary_contr: #FFF;
+
+
+$colour-1: #E37222;
+$colour-1_contr: #FFF;
+
+$colour-2: #07889B;
+$colour-2_contr: #FFF;
+
+$colour-3: #EEAA7B;
+$colour-3_contr: #FFF;
+
+$colour-4: #66B9BF;
+$colour-4_contr: #FFF;
+
+@function rem($font-size: 16) {
+  @return $font-size/16+rem;
+}
+
+@mixin min($minwidth: $width) {
+	@media (min-width: $minwidth) {
+		@content
+	}
+}
