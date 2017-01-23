@@ -63,7 +63,7 @@
 						<div class="slide_inner">
 							<div class="blocks">
 								<div class="block block_text block_right">
-									<form action="[[~[[*id]]]]" class="form" method="post">
+									<form action="[[~[[*id]]]]#contact" class="form" method="post">
 										[[!FormIt?
 											&hooks=`FormItSaveForm`
 											&formName=`Contact Form`
@@ -161,32 +161,39 @@
 			elCarousel.classList.add('ready');
 		}, 100);
 
+		var funcGoToPanel = function(idx){
+			carouselTrf.scale = '0.9';
+			funcApplyTransforms(elCarousel, carouselTrf);
+			setTimeout(function(){
+				carouselTrf.rotateY = (-(idx-1) * (360 / numberOfPanels))+'deg';
+				funcApplyTransforms(elCarousel, carouselTrf);
+
+				setTimeout(function(){
+					carouselTrf.scale = '1';
+					funcApplyTransforms(elCarousel, carouselTrf);
+				},1000);
+			}, 1000);
+
+			for (var i = 0, l = elSlides.length; i < l; i++) {
+				elSlides[i].classList.remove('slide-active');
+			}
+			elSlides[idx - 1].classList.add('slide-active');
+		};
+
+		var funcGoToPanelName = function(name){
+			var elTgt = document.getElementById(name);
+			var nodeList = Array.prototype.slice.call( document.getElementById('carousel').children );
+			funcGoToPanel(nodeList.indexOf(elTgt) + 1);
+		};
+
+		if (window.location.hash) {
+			funcGoToPanelName(window.location.hash.substr(1));
+		}
+
 		$('.js-goto')
 			.on('click', function(event){
 				event.preventDefault();
-				var idx = this.dataset.index;
-
-				carouselTrf.scale = '0.9';
-				funcApplyTransforms(elCarousel, carouselTrf);
-				setTimeout(function(){
-					carouselTrf.rotateY = (-(idx-1) * (360 / numberOfPanels))+'deg';
-					funcApplyTransforms(elCarousel, carouselTrf);
-
-					setTimeout(function(){
-						carouselTrf.scale = '1';
-						funcApplyTransforms(elCarousel, carouselTrf);
-					},1000);
-				}, 1000);
-
-				for (var i = 0, l = elSlides.length; i < l; i++) {
-					elSlides[i].classList.remove('slide-active');
-				}
-				elSlides[idx - 1].classList.add('slide-active');
-
-				// carouselTrf.rotateY = (-(idx-1) * (360 / numberOfPanels))+'deg';
-				// funcApplyTransforms(elCarousel, carouselTrf);
-
-				// elCarousel.style.transform = 'translateZ('+(-tz)+'px) rotateY('+(-(idx-1) * (360 / numberOfPanels))+'deg)';
+				funcGoToPanel(this.dataset.index);
 			});
 	</script>
 </body>
