@@ -62,16 +62,21 @@
 						<div class="slide_inner">
 							<div class="blocks">
 								<div class="block block_text block_right">
-									<form action="" class="form" method="post">
+									<form action="[[~[[*id]]]]" class="form" method="post">
+										[[!FormIt?
+											&hooks=`FormItSaveForm`
+											&formName=`Contact Form`
+											&validate=`name:required,email:email:required`
+										]]
 										<h2>Go on. Make me an offer I can't refuse.</h2>
 										<div class="form-item">
-											<input type="text" name="name" placeholder="Your name">
+											<input type="text" name="name" placeholder="Your name" value="[[!+fi.name]]">
 										</div>
 										<div class="form-item">
-											<input type="text" name="email" placeholder="Your email">
+											<input type="text" name="email" placeholder="Your email" value="[[!+fi.email]]">
 										</div>
 										<div class="form-item">
-											<textarea name="message" cols="30" rows="10" placeholder="Your message"></textarea>
+											<textarea name="message" cols="30" rows="10" placeholder="Your message">[[!+fi.message]]</textarea>
 										</div>
 										<div class="form-buttons">
 											<button type="submit" class="button button_block">Go</button>
