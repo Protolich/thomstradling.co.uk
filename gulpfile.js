@@ -3,6 +3,8 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch'),
 	notify = require('gulp-notify'),
 	postcss = require('gulp-postcss'),
+	cssnano = require('gulp-cssnano'),
+	rename = require('gulp-rename'),
 	autoprefixer = require('autoprefixer'),
 	browserSync = require('browser-sync').create();
 
@@ -16,7 +18,7 @@ gulp.task('old', function(){
 			this.emit('end');
 		})
 		//.pipe(sourcemaps.write())
-		//.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+		// .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
 		.pipe(gulp.dest('css'))
 		.pipe(notify({
 			title: 'Success: sass',
@@ -35,7 +37,10 @@ gulp.task('sass', function(){
 			this.emit('end');
 		})
 		//.pipe(sourcemaps.write())
-		//.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+		// .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+		.pipe(gulp.dest('assets/components/thomstradling.co.uk/css'))
+		.pipe(rename({suffix: '.min'}))
+		// .pipe(cssnano())
 		.pipe(gulp.dest('assets/components/thomstradling.co.uk/css'))
 		.pipe(notify({
 			title: 'Success: sass',
@@ -46,7 +51,7 @@ gulp.task('sass', function(){
 gulp.task('reload', function () {
 	browserSync.reload();
 });
-gulp.task('default', ['sass','csb'], function(){
+gulp.task('default', ['sass'], function(){
 	browserSync.init({
 		server: {
 			baseDir: './'
