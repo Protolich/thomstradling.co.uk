@@ -3603,6 +3603,15 @@ p + * {
   margin-top: 10px;
 }
 
+label.error {
+  background-color: #FEE;
+  border: 1px solid #F00;
+  border-radius: 2px;
+  color: #F00;
+  display: block;
+  padding: 4px;
+}
+
 input,
 textarea {
   font-family: inherit;
