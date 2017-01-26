@@ -63,7 +63,7 @@
 						<div class="slide_inner">
 							<div class="blocks">
 								<div class="block block_text block_right">
-									<form action="[[~[[*id]]]]#contact" class="form" method="post">
+									<form action="[[~[[*id]]]]#contact" class="form js-form-validate" method="post">
 										[[!FormIt?
 											&hooks=`FormItSaveForm`
 											&formName=`Contact Form`
@@ -71,10 +71,10 @@
 										]]
 										<h2>Go on. Make me an offer I can't refuse.</h2>
 										<div class="form-item">
-											<input type="text" name="name" placeholder="Your name" value="[[!+fi.name]]">
+											<input type="text" name="name" placeholder="Your name" value="[[!+fi.name]]" required data-msg-required="Please enter your name">
 										</div>
 										<div class="form-item">
-											<input type="text" name="email" placeholder="Your email" value="[[!+fi.email]]">
+											<input type="email" name="email" placeholder="Your email" value="[[!+fi.email]]" required data-msg-required="Please enter your email" data-msg-email="Please enter a valid email">
 										</div>
 										<div class="form-item">
 											<textarea name="message" cols="30" rows="10" placeholder="Your message">[[!+fi.message]]</textarea>
@@ -100,6 +100,7 @@
 	</div> <!-- .site -->
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
 	<script>
 		// var test = $('body').hasClass('no-3d');
 		// if ($('body').hasClass('no-3d')) return;
@@ -195,6 +196,8 @@
 				event.preventDefault();
 				funcGoToPanel(this.dataset.index);
 			});
+
+		$('.js-form-validate').validate();
 	</script>
 </body>
 </html>
