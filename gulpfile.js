@@ -40,7 +40,7 @@ gulp.task('sass', function(){
 		// .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
 		.pipe(gulp.dest('assets/components/thomstradling.co.uk/css'))
 		.pipe(rename({suffix: '.min'}))
-		// .pipe(cssnano())
+		.pipe(cssnano())
 		.pipe(gulp.dest('assets/components/thomstradling.co.uk/css'))
 		.pipe(notify({
 			title: 'Success: sass',
