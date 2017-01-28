@@ -172,7 +172,13 @@
 				if (mq.addListener) mq.addListener(updateSlides);
 				updateSlides(mq);
 			}
+
+			$(window).on('resize', function(){
+				var mq = window.matchMedia( "(min-width: 768px)" );
+				updateSlides(mq);
+			});
 		})();
+
 
 		setTimeout(function(){
 			elCarousel.classList.add('ready');
