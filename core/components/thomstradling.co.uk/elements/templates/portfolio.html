@@ -114,6 +114,7 @@
 			numberOfPanels = 9,
 			tz = Math.round( ( panelSize / 2 ) / Math.tan( Math.PI / numberOfPanels ) ),
 			trsSpd = 0.3,
+			currentPanel = 'home',
 			carouselTrf = {};
 
 		// Functions
@@ -197,6 +198,8 @@
 			.on('click', function(event){
 				event.preventDefault();
 				var panel = this.href.substr(this.href.indexOf('#') + 1);
+				if (currentPanel === panel) return;
+				currentPanel = panel;
 				history.pushState({page: panel}, panel, window.location.pathname+'#'+panel);
 				funcGoToPanelName(panel);
 			});
