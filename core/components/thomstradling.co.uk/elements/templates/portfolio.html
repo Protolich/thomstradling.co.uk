@@ -128,7 +128,13 @@
 			el.style.transform = s.join(' ');
 		};
 
+		var funcUpdateTz = function(){
+			var panelSize = elCarousel.offsetWidth;
+			return Math.round( ( panelSize / 2 ) / Math.tan( Math.PI / numberOfPanels ) );
+		};
+
 		var funcSetup = function(){
+			tz = funcUpdateTz();
 			// Set the transforms for each slide
 			for (var i = 0, l = elSlides.length; i < l; i++) {
 				var deg = (360 / numberOfPanels) * i;
