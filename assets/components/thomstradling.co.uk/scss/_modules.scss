@@ -53,12 +53,18 @@
 
 .slide-1 {
 	background-color: #FFC;
-	background-image: url(/assets/components/thomstradling.co.uk/images/bournemouth.jpg);
 	align-items: center;
 
+	@include min(768px) {
+		background-image: url(/assets/components/thomstradling.co.uk/images/bournemouth.jpg);
+	}
+
   .slide_inner {
-    padding-top: 0;
-    padding-bottom: 0;
+
+		@include min(768px) {
+			padding-bottom: 0;
+			padding-top: 0;
+		}
   }
 }
 .slide-2 {

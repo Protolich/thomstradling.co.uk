@@ -57,7 +57,7 @@ gulp.task('default', ['sass'], function(){
 			baseDir: './'
 		}
 	});
-	gulp.watch(['scss/*.scss','scss/**/*.scss'], ['sass','csb']);
+	gulp.watch(['assets/components/thomstradling.co.uk/scss/*.scss','assets/components/thomstradling.co.uk/scss/**/*.scss'], ['sass','csb']);
 	gulp.watch('*.html', ['reload']);
 	gulp.watch('*.js', ['reload']);
 });
