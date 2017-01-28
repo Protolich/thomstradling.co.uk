@@ -498,7 +498,7 @@ template {
 }
 
 .slide-1 {
-  background-color: #FFC;
+  background-color: #E37222;
   align-items: center;
 }
 @media (min-width: 768px) {
@@ -514,7 +514,7 @@ template {
 }
 
 .slide-2 {
-  background-color: #CFF;
+  background-color: #07889B;
   align-items: center;
 }
 @media (min-width: 768px) {
@@ -524,7 +524,7 @@ template {
 }
 
 .slide-3 {
-  background-color: #FCF;
+  background-color: #EEAA7B;
 }
 @media (min-width: 768px) {
   .slide-3 {
@@ -533,7 +533,7 @@ template {
 }
 
 .slide-4 {
-  background-color: #CFC;
+  background-color: #66B9BF;
 }
 @media (min-width: 768px) {
   .slide-4 {

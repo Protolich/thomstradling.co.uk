@@ -52,7 +52,7 @@
 }
 
 .slide-1 {
-	background-color: #FFC;
+	background-color: $colour-1;
 	align-items: center;
 
 	@include min(768px) {
@@ -68,7 +68,7 @@
   }
 }
 .slide-2 {
-	background-color: #CFF;
+	background-color: $colour-2;
 	align-items: center;
 
 	@include min(768px) {
@@ -76,14 +76,14 @@
 	}
 }
 .slide-3 {
-	background-color: #FCF;
+	background-color: $colour-3;
 
 	@include min(768px) {
 		background-image: url(/assets/components/thomstradling.co.uk/images/work.jpg);
 	}
 }
 .slide-4 {
-	background-color: #CFC;
+	background-color: $colour-4;
 
 	@include min(768px) {
 		background-image: url(/assets/components/thomstradling.co.uk/images/mail.jpg);
