@@ -187,7 +187,7 @@
 			var elTgt = document.getElementById(name);
 			var nodeList = Array.prototype.slice.call( document.getElementById('carousel').children );
 			funcGoToPanel(nodeList.indexOf(elTgt) + 1);
-			history.pushState({page: name}, name, '#'+name);
+			history.pushState({page: name}, name, window.location.pathname+'#'+name);
 		};
 
 		if (window.location.hash) {
