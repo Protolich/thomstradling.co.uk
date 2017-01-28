@@ -129,12 +129,10 @@
 		};
 
 		var funcSetup = function(){
-			if (!mqSlides) return;
-
 			// Set the transforms for each slide
 			for (var i = 0, l = elSlides.length; i < l; i++) {
 				var deg = (360 / numberOfPanels) * i;
-				var s = window.getComputedStyle(elSlides[i], null);
+				// var s = window.getComputedStyle(elSlides[i], null);
 				elSlides[i].style.transform = ' rotateY( '+deg+'deg ) translateZ( '+tz+'px )';
 			}
 
@@ -142,17 +140,25 @@
 			carouselTrf.translateZ = (-tz)+'px';
 			funcApplyTransforms(elCarousel, carouselTrf);
 		};
+		var funcReset = function(){
+			// Reset the transforms for each slide
+			for (var i = 0, l = elSlides.length; i < l; i++) {
+				elSlides[i].style.transform = '';
+			}
+
+			// Reset the carousel
+			elCarousel.style.transform = '';
+		};
 
 		// Media Queries
 		var mqSlides;
 		(function(){
 			var updateSlides = function(mq){
 				if (mq.matches) {
-					mqSlides = true;
+					funcSetup();
 				} else {
-					mqSlides = false;
+					funcReset();
 				}
-				funcSetup();
 			};
 			if (window.matchMedia) {
 				var mq = window.matchMedia( "(min-width: 768px)" );
@@ -160,8 +166,6 @@
 				updateSlides(mq);
 			}
 		})();
-
-		funcSetup();
 
 		setTimeout(function(){
 			elCarousel.classList.add('ready');
