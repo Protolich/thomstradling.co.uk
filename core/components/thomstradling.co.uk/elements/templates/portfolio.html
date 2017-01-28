@@ -102,6 +102,7 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
 	<script>
+		(function(){})();
 		// var test = $('body').hasClass('no-3d');
 		// if ($('body').hasClass('no-3d')) return;
 		// Elements
@@ -112,6 +113,7 @@
 		var panelSize = elCarousel.offsetWidth,
 			numberOfPanels = 9,
 			tz = Math.round( ( panelSize / 2 ) / Math.tan( Math.PI / numberOfPanels ) ),
+			trsSpd = 0.3,
 			carouselTrf = {};
 
 		// Functions
@@ -172,8 +174,8 @@
 				setTimeout(function(){
 					carouselTrf.scale = '1';
 					funcApplyTransforms(elCarousel, carouselTrf);
-				},1000);
-			}, 1000);
+				},trsSpd * 1000);
+			}, trsSpd * 1000);
 
 			for (var i = 0, l = elSlides.length; i < l; i++) {
 				elSlides[i].classList.remove('slide-active');
@@ -185,6 +187,7 @@
 			var elTgt = document.getElementById(name);
 			var nodeList = Array.prototype.slice.call( document.getElementById('carousel').children );
 			funcGoToPanel(nodeList.indexOf(elTgt) + 1);
+			history.pushState({page: name}, name, '#'+name);
 		};
 
 		if (window.location.hash) {
@@ -194,10 +197,18 @@
 		$('.js-goto')
 			.on('click', function(event){
 				event.preventDefault();
-				funcGoToPanel(this.dataset.index);
+				// funcGoToPanel(this.dataset.index);
+				funcGoToPanelName(this.href.substr(this.href.indexOf('#')));
 			});
 
 		$('.js-form-validate').validate();
+
+		window.onpopstate = function(event){
+			console.log(event.state);
+			if (event.state.page) {
+
+			}
+		};
 	</script>
 </body>
 </html>
