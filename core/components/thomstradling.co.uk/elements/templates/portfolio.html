@@ -128,25 +128,7 @@
 			el.style.transform = s.join(' ');
 		};
 
-
-		// Media Queries
-		var mqSlides;
-		(function(){
-			var updateSlides = function(mq){
-				if (mq.matches) {
-					mqSlides = true;
-				} else {
-					mqSlides = false;
-				}
-			};
-			if (window.matchMedia) {
-				var mq = window.matchMedia( "(min-width: 768px)" );
-				if (mq.addListener) mq.addListener(updateSlides);
-				updateSlides(mq);
-			}
-		})();
-
-		(function(){
+		var funcSetup = function(){
 			if (!mqSlides) return;
 
 			// Set the transforms for each slide
@@ -159,7 +141,27 @@
 			// Shift the carousel back
 			carouselTrf.translateZ = (-tz)+'px';
 			funcApplyTransforms(elCarousel, carouselTrf);
+		};
+
+		// Media Queries
+		var mqSlides;
+		(function(){
+			var updateSlides = function(mq){
+				if (mq.matches) {
+					mqSlides = true;
+				} else {
+					mqSlides = false;
+				}
+				funcSetup();
+			};
+			if (window.matchMedia) {
+				var mq = window.matchMedia( "(min-width: 768px)" );
+				if (mq.addListener) mq.addListener(updateSlides);
+				updateSlides(mq);
+			}
 		})();
+
+		funcSetup();
 
 		setTimeout(function(){
 			elCarousel.classList.add('ready');
