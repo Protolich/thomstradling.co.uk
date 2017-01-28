@@ -198,7 +198,7 @@
 			.on('click', function(event){
 				event.preventDefault();
 				// funcGoToPanel(this.dataset.index);
-				funcGoToPanelName(this.href.substr(this.href.indexOf('#')));
+				funcGoToPanelName(this.href.substr(this.href.indexOf('#') + 1));
 			});
 
 		$('.js-form-validate').validate();
