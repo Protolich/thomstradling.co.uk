@@ -206,7 +206,9 @@
 		window.onpopstate = function(event){
 			console.log(event.state);
 			if (event.state.page) {
-
+				funcGoToPanelName(event.state.page);
+			} else {
+				funcGoToPanelName('home');
 			}
 		};
 	</script>
