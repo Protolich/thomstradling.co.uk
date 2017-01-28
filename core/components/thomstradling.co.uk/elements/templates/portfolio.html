@@ -207,8 +207,8 @@
 		$('.js-form-validate').validate();
 
 		window.onpopstate = function(event){
-			console.log(event.state);
-			if (event.state.page) {
+			// console.log(event.state);
+			if (event.state && event.state.page) {
 				funcGoToPanelName(event.state.page);
 			} else {
 				funcGoToPanelName('home');
