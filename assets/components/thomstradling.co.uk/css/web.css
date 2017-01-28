@@ -515,18 +515,30 @@ template {
 
 .slide-2 {
   background-color: #CFF;
-  background-image: url(/assets/components/thomstradling.co.uk/images/profile.jpg);
   align-items: center;
+}
+@media (min-width: 768px) {
+  .slide-2 {
+    background-image: url(/assets/components/thomstradling.co.uk/images/profile.jpg);
+  }
 }
 
 .slide-3 {
   background-color: #FCF;
-  background-image: url(/assets/components/thomstradling.co.uk/images/work.jpg);
+}
+@media (min-width: 768px) {
+  .slide-3 {
+    background-image: url(/assets/components/thomstradling.co.uk/images/work.jpg);
+  }
 }
 
 .slide-4 {
   background-color: #CFC;
-  background-image: url(/assets/components/thomstradling.co.uk/images/mail.jpg);
+}
+@media (min-width: 768px) {
+  .slide-4 {
+    background-image: url(/assets/components/thomstradling.co.uk/images/mail.jpg);
+  }
 }
 
 /*!
