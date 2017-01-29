@@ -244,6 +244,11 @@
 
 			$('[data-ajax]')
 				.each(function(index, elForm){
+					// Elements
+					var elError = elForm.querySelector('.alert-error'),
+							elSuccess = elForm.querySelector('.alert-success');
+
+					// jQuery Objects
 					var _form = $(elForm);
 					_form
 						.on('submit', function(event){
@@ -254,7 +259,15 @@
 								elForm.dataset.ajax,
 								_form.serialize(),
 								function(data, textStatus, jqXHR){
-									console.log(data);
+									console.log(JSON.parse(data));
+									if (data.status == "1") {
+										elError.classList.add('hidden');
+										elSuccess.classList.remove('hidden');
+									}
+									if (data.status == "2") {
+										elSuccess.classList.add('hidden');
+										elError.classList.remove('hidden');
+									}
 								}
 							);
 						});
