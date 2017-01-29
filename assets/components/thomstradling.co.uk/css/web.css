@@ -547,6 +547,9 @@ template {
   border-width: 1px;
   padding: 5px;
 }
+.alert-success + *, .alert-error + * {
+  margin-top: 10px;
+}
 
 .alert-success {
   background-color: #EFE;
