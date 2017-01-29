@@ -246,9 +246,12 @@
 				.each(function(index, elForm){
 					var _form = $(elForm);
 					_form
+						.on('submit', function(event){
+							event.preventDefault();
+						})
 						.on('ajax-submit', function(){
 							$.post(
-								elForm.dataSet.ajax,
+								elForm.dataset.ajax,
 								_form.serialize(),
 								function(data, textStatus, jqXHR){
 									console.log(data);
