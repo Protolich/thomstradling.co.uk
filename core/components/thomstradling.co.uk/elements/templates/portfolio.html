@@ -63,7 +63,7 @@
 						<div class="slide_inner">
 							<div class="blocks">
 								<div class="block block_text block_right">
-									<form action="[[~[[*id]]]]#contact" class="form js-form-validate" method="post">
+									<form action="[[~[[*id]]]]#contact" class="form js-form-validate" method="post" data-ajax="[[~11]]">
 										[[!FormIt?
 											&hooks=`FormItSaveForm`
 											&formName=`Contact Form`
@@ -71,8 +71,8 @@
 											&validate=`name:required,email:email:required`
 											&validationErrorMessage=`1`
 										]]
-										<div>Success: [[!+fi.successMessage]]</div>
-										<div>Error: [[!+fi.validation_error_message]]</div>
+										<div class="alert-success [[!+fi.successMessage:neq=`1`:then`hidden`]]">Thanks for contacting me!</div>
+										<div class="alert-error [[!+fi.validation_error_message:neq=`1`:then=`hidden`]]">There was an error with the submission. Please check your details and try again.</div>
 										<h2>Go on. Make me an offer I can't refuse.</h2>
 										<div class="form-item">
 											<input type="text" name="name" placeholder="Your name" value="[[!+fi.name]]" required data-msg-required="Please enter your name">
@@ -106,137 +106,158 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
 	<script>
-		(function(){})();
-		// var test = $('body').hasClass('no-3d');
-		// if ($('body').hasClass('no-3d')) return;
-		// Elements
-		var elCarousel = document.getElementById('carousel'),
-			elSlides = document.querySelectorAll('.slide');
-
-		// Variables
-		var panelSize = elCarousel.offsetWidth,
-			numberOfPanels = 9,
-			tz = Math.round( ( panelSize / 2 ) / Math.tan( Math.PI / numberOfPanels ) ),
-			trsSpd = 0.3,
-			currentPanel = 'home',
-			carouselTrf = {};
-
-		// Functions
-		var funcApplyTransforms = function(el,trf){
-			// My magical transform handler function
-			// Use an object to track the transforms and apply to element
-			var s = [];
-			for (var k in trf) {
-				if (trf[k]) s.push(k+'('+trf[k]+')');
-			}
-			el.style.transform = s.join(' ');
-		};
-
-		var funcUpdateTz = function(){
-			var panelSize = elCarousel.offsetWidth;
-			return Math.round( ( panelSize / 2 ) / Math.tan( Math.PI / numberOfPanels ) );
-		};
-
-		var funcSetup = function(){
-			tz = funcUpdateTz();
-			// Set the transforms for each slide
-			for (var i = 0, l = elSlides.length; i < l; i++) {
-				var deg = (360 / numberOfPanels) * i;
-				// var s = window.getComputedStyle(elSlides[i], null);
-				elSlides[i].style.transform = ' rotateY( '+deg+'deg ) translateZ( '+tz+'px )';
-			}
-
-			// Shift the carousel back
-			carouselTrf.translateZ = (-tz)+'px';
-			funcApplyTransforms(elCarousel, carouselTrf);
-		};
-		var funcReset = function(){
-			// Reset the transforms for each slide
-			for (var i = 0, l = elSlides.length; i < l; i++) {
-				elSlides[i].style.transform = '';
-			}
-
-			// Reset the carousel
-			elCarousel.style.transform = '';
-		};
-
-		// Media Queries
-		var mqSlides;
 		(function(){
-			var updateSlides = function(mq){
-				console.log('Function: updateSlides');
-				if (mq.matches) {
-					funcSetup();
+			// var test = $('body').hasClass('no-3d');
+			// if ($('body').hasClass('no-3d')) return;
+			// Elements
+			var elCarousel = document.getElementById('carousel'),
+				elSlides = document.querySelectorAll('.slide');
+
+			// Variables
+			var panelSize = elCarousel.offsetWidth,
+				numberOfPanels = 9,
+				tz = Math.round( ( panelSize / 2 ) / Math.tan( Math.PI / numberOfPanels ) ),
+				trsSpd = 0.3,
+				currentPanel = 'home',
+				carouselTrf = {};
+
+			// Functions
+			var funcApplyTransforms = function(el,trf){
+				// My magical transform handler function
+				// Use an object to track the transforms and apply to element
+				var s = [];
+				for (var k in trf) {
+					if (trf[k]) s.push(k+'('+trf[k]+')');
+				}
+				el.style.transform = s.join(' ');
+			};
+
+			var funcUpdateTz = function(){
+				var panelSize = elCarousel.offsetWidth;
+				return Math.round( ( panelSize / 2 ) / Math.tan( Math.PI / numberOfPanels ) );
+			};
+
+			var funcSetup = function(){
+				tz = funcUpdateTz();
+				// Set the transforms for each slide
+				for (var i = 0, l = elSlides.length; i < l; i++) {
+					var deg = (360 / numberOfPanels) * i;
+					// var s = window.getComputedStyle(elSlides[i], null);
+					elSlides[i].style.transform = ' rotateY( '+deg+'deg ) translateZ( '+tz+'px )';
+				}
+
+				// Shift the carousel back
+				carouselTrf.translateZ = (-tz)+'px';
+				funcApplyTransforms(elCarousel, carouselTrf);
+			};
+			var funcReset = function(){
+				// Reset the transforms for each slide
+				for (var i = 0, l = elSlides.length; i < l; i++) {
+					elSlides[i].style.transform = '';
+				}
+
+				// Reset the carousel
+				elCarousel.style.transform = '';
+			};
+
+			// Media Queries
+			var mqSlides;
+			(function(){
+				var updateSlides = function(mq){
+					console.log('Function: updateSlides');
+					if (mq.matches) {
+						funcSetup();
+					} else {
+						funcReset();
+					}
+				};
+				if (window.matchMedia) {
+					var mq = window.matchMedia( "(min-width: 768px)" );
+					if (mq.addListener) mq.addListener(updateSlides);
+					updateSlides(mq);
+				}
+
+				$(window).on('resize', function(){
+					var mq = window.matchMedia( "(min-width: 768px)" );
+					updateSlides(mq);
+				});
+			})();
+
+
+			setTimeout(function(){
+				elCarousel.classList.add('ready');
+			}, 100);
+
+			var funcGoToPanel = function(idx){
+				carouselTrf.scale = '0.9';
+				funcApplyTransforms(elCarousel, carouselTrf);
+				setTimeout(function(){
+					carouselTrf.rotateY = (-(idx-1) * (360 / numberOfPanels))+'deg';
+					funcApplyTransforms(elCarousel, carouselTrf);
+
+					setTimeout(function(){
+						carouselTrf.scale = '1';
+						funcApplyTransforms(elCarousel, carouselTrf);
+					},trsSpd * 1000);
+				}, trsSpd * 1000);
+
+				for (var i = 0, l = elSlides.length; i < l; i++) {
+					elSlides[i].classList.remove('slide-active');
+				}
+				elSlides[idx - 1].classList.add('slide-active');
+			};
+
+			var funcGoToPanelName = function(name){
+				var elTgt = document.getElementById(name);
+				var nodeList = Array.prototype.slice.call( document.getElementById('carousel').children );
+				funcGoToPanel(nodeList.indexOf(elTgt) + 1);
+			};
+
+			if (window.location.hash) {
+				funcGoToPanelName(window.location.hash.substr(1));
+			}
+
+			$('.js-goto')
+				.on('click', function(event){
+					event.preventDefault();
+					var panel = this.href.substr(this.href.indexOf('#') + 1);
+					if (currentPanel === panel) return;
+					currentPanel = panel;
+					history.pushState({page: panel}, panel, window.location.pathname+'#'+panel);
+					funcGoToPanelName(panel);
+				});
+
+			$('.js-form-validate').validate({
+				submitHandler: function(form) {
+					$(form).trigger('ajax-submit');
+  			}
+			});
+
+			window.onpopstate = function(event){
+				// console.log(event.state);
+				if (event.state && event.state.page) {
+					funcGoToPanelName(event.state.page);
 				} else {
-					funcReset();
+					funcGoToPanelName('home');
 				}
 			};
-			if (window.matchMedia) {
-				var mq = window.matchMedia( "(min-width: 768px)" );
-				if (mq.addListener) mq.addListener(updateSlides);
-				updateSlides(mq);
-			}
 
-			$(window).on('resize', function(){
-				var mq = window.matchMedia( "(min-width: 768px)" );
-				updateSlides(mq);
-			});
+			$('[data-ajax]')
+				.each(function(index, elForm){
+					var _form = $(elForm);
+					_form
+						.on('ajax-submit', function(){
+							$.post(
+								elForm.dataSet.ajax,
+								_form.serialize(),
+								function(data, textStatus, jqXHR){
+									console.log(data);
+								}
+							);
+						});
+				});
 		})();
 
-
-		setTimeout(function(){
-			elCarousel.classList.add('ready');
-		}, 100);
-
-		var funcGoToPanel = function(idx){
-			carouselTrf.scale = '0.9';
-			funcApplyTransforms(elCarousel, carouselTrf);
-			setTimeout(function(){
-				carouselTrf.rotateY = (-(idx-1) * (360 / numberOfPanels))+'deg';
-				funcApplyTransforms(elCarousel, carouselTrf);
-
-				setTimeout(function(){
-					carouselTrf.scale = '1';
-					funcApplyTransforms(elCarousel, carouselTrf);
-				},trsSpd * 1000);
-			}, trsSpd * 1000);
-
-			for (var i = 0, l = elSlides.length; i < l; i++) {
-				elSlides[i].classList.remove('slide-active');
-			}
-			elSlides[idx - 1].classList.add('slide-active');
-		};
-
-		var funcGoToPanelName = function(name){
-			var elTgt = document.getElementById(name);
-			var nodeList = Array.prototype.slice.call( document.getElementById('carousel').children );
-			funcGoToPanel(nodeList.indexOf(elTgt) + 1);
-		};
-
-		if (window.location.hash) {
-			funcGoToPanelName(window.location.hash.substr(1));
-		}
-
-		$('.js-goto')
-			.on('click', function(event){
-				event.preventDefault();
-				var panel = this.href.substr(this.href.indexOf('#') + 1);
-				if (currentPanel === panel) return;
-				currentPanel = panel;
-				history.pushState({page: panel}, panel, window.location.pathname+'#'+panel);
-				funcGoToPanelName(panel);
-			});
-
-		$('.js-form-validate').validate();
-
-		window.onpopstate = function(event){
-			// console.log(event.state);
-			if (event.state && event.state.page) {
-				funcGoToPanelName(event.state.page);
-			} else {
-				funcGoToPanelName('home');
-			}
-		};
 	</script>
 </body>
 </html>
