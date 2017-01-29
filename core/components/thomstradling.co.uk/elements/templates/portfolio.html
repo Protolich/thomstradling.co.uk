@@ -67,8 +67,12 @@
 										[[!FormIt?
 											&hooks=`FormItSaveForm`
 											&formName=`Contact Form`
+											&successMessage=`1`
 											&validate=`name:required,email:email:required`
+											&validationErrorMessage=`1`
 										]]
+										<div>Success: [[!+fi.successMessage]]</div>
+										<div>Error: [[!+fi.validation_error_message]]</div>
 										<h2>Go on. Make me an offer I can't refuse.</h2>
 										<div class="form-item">
 											<input type="text" name="name" placeholder="Your name" value="[[!+fi.name]]" required data-msg-required="Please enter your name">
