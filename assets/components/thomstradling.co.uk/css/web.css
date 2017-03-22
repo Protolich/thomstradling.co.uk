@@ -3777,7 +3777,7 @@ nav a:hover span {
   padding-top: 10px;
 }
 nav span {
-  bottom: 0;
+  top: 0;
   font-size: 0.625rem;
   font-weight: 700;
   overflow: hidden;
