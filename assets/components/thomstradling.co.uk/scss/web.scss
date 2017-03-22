@@ -282,10 +282,6 @@ nav {
 	flex-wrap: wrap;
 	width: 100%;
 
-	.block_text {
-		@extend .block-colour-1;
-	}
-
 	&:nth-child(2n) {
 		@include min(768px) {
 			.block {
@@ -297,7 +293,15 @@ nav {
 				}
 			}
 		}
+	}
+}
 
+.blocks_alt {
+	.block_text {
+		@extend .block-colour-1;
+	}
+
+	&:nth-child(2n) {
 		.block_text {
 			@extend .block-colour-2;
 		}
