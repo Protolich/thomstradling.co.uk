@@ -3925,12 +3925,12 @@ nav span {
   padding: 40px;
 }
 
-.block-colour-1 {
+.block-colour-1, .blocks_row .block_text {
   background-color: #E37222;
   color: #FFF;
 }
 
-.block-colour-2 {
+.block-colour-2, .blocks_row:nth-child(2n) .block_text {
   background-color: #07889B;
   color: #FFF;
 }
