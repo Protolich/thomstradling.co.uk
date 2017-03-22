@@ -197,6 +197,11 @@
 			}, 100);
 
 			var funcGoToPanel = function(idx){
+				if (window.matchMedia) {
+					// Stop trying to transform the carousel on smaller devices //
+					var mq = window.matchMedia( "(min-width: 768px)" );
+					if (!mq.matches) return false;
+				}
 				carouselTrf.scale = '0.9';
 				funcApplyTransforms(elCarousel, carouselTrf);
 				setTimeout(function(){
@@ -228,7 +233,20 @@
 			$('.js-goto')
 				.on('click', function(event){
 					event.preventDefault();
+					// Get the panel name from the HREF attribute
 					var panel = this.href.substr(this.href.indexOf('#') + 1);
+
+					if (window.matchMedia) {
+						// Stop trying to transform the carousel on smaller devices //
+						var mq = window.matchMedia( "(min-width: 768px)" );
+						if (!mq.matches) {
+							// Scroll to the top of the target element //
+							var elTgt = document.getElementById(panel);
+							$('html,body')
+								.animate({ scrollTop: elTgt.offsetTop });
+							return false;
+						}
+					}
 					if (currentPanel === panel) return;
 					currentPanel = panel;
 					history.pushState({page: panel}, panel, window.location.pathname+'#'+panel);
