@@ -301,7 +301,7 @@ nav {
 		@extend .block-colour-1;
 	}
 
-	&:nth-child(2n) {
+	.blocks_row:nth-child(2n) {
 		.block_text {
 			@extend .block-colour-2;
 		}

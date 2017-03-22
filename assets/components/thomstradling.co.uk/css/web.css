@@ -3930,7 +3930,7 @@ nav span {
   color: #FFF;
 }
 
-.block-colour-2, .blocks_alt:nth-child(2n) .block_text {
+.block-colour-2, .blocks_alt .blocks_row:nth-child(2n) .block_text {
   background-color: #07889B;
   color: #FFF;
 }
