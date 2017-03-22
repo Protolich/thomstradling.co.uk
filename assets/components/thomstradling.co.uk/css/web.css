@@ -3734,10 +3734,15 @@ textarea,
 
 nav {
   display: flex;
-  height: 10px;
+  height: 30px;
   order: 1;
   width: 100%;
   z-index: 20;
+}
+@media (min-width: 768px) {
+  nav {
+    height: 10px;
+  }
 }
 nav a {
   position: relative;
@@ -3781,13 +3786,18 @@ nav span {
   font-size: 0.625rem;
   font-weight: 700;
   overflow: hidden;
-  height: 0;
+  height: 30px;
   line-height: 10px;
   padding-left: 10px;
   padding-right: 10px;
   position: absolute;
   transition: all 0.3s;
   width: 100%;
+}
+@media (min-width: 768px) {
+  nav span {
+    height: 0;
+  }
 }
 
 .nav-button {

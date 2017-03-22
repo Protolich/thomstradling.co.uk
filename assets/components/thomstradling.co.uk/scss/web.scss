@@ -109,10 +109,14 @@ textarea,
 
 nav {
 	display: flex;
-	height: 10px;
+	height: 30px;
 	order: 1;
 	width: 100%;
 	z-index: 20;
+
+	@include min(768px) {
+		height: 10px;
+	}
 
 	a {
 		position: relative;
@@ -168,13 +172,17 @@ nav {
 		font-size: rem(10);
 		font-weight: 700;
 		overflow: hidden;
-		height: 0;
+		height: 30px;
 		line-height: 10px;
 		padding-left: 10px;
 		padding-right: 10px;
 		position: absolute;
 		transition: all 0.3s;
 		width: 100%;
+
+		@include min(768px) {
+			height: 0;
+		}
 	}
 }
 
