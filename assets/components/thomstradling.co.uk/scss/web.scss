@@ -94,6 +94,7 @@ textarea,
 }
 .view {
 	flex-grow: 1;
+	order: 2;
 	width: 100%;
 	position: relative;
 	margin: auto;
@@ -109,6 +110,7 @@ textarea,
 nav {
 	display: flex;
 	height: 10px;
+	order: 1;
 	width: 100%;
 	z-index: 20;
 
