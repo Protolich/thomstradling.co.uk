@@ -569,12 +569,14 @@ template {
 
 .loader {
   background-color: #FFF;
+  opacity: 1;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   text-align: center;
+  transition: opacity 0.3s;
   z-index: 100;
 }
 .loader:before {
@@ -587,6 +589,9 @@ template {
 }
 .no-js .loader {
   display: none;
+}
+.loader.loaded {
+  opacity: 0;
 }
 
 /*!

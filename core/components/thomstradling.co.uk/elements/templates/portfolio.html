@@ -280,6 +280,14 @@
 							);
 						});
 				});
+
+			$('.loader')
+				.addClass('loaded');
+
+			setTimeout(function(){
+				$('.loader')
+					.addClass('hidden');
+			}, 300);
 		})();
 
 	</script>
