@@ -265,16 +265,28 @@ nav {
 		padding: 0.25em;
 
 		&:nth-child(1) {
-			font-size: 72px;
+			font-size: 50px;
 			font-weight: 700;
+
+			@include min(768px) {
+				font-size: 72px;
+			}
 		}
 
 		&:nth-child(2) {
-			font-size: 60px;
+			font-size: 40px;
+
+			@include min(768px) {
+				font-size: 60px;
+			}
 		}
 
 		&:nth-child(3) {
-			font-size: 48px;
+			font-size: 30px;
+
+			@include min(768px) {
+				font-size: 48px;
+			}
 		}
 	}
 }
@@ -358,7 +370,11 @@ nav {
 .block_text {
 	background-color: #000;
 	color: #FFF;
-	padding: 40px;
+	padding: 20px;
+
+	@include min(768px) {
+		padding: 40px;
+	}
 }
 
 .block-colour-1 {

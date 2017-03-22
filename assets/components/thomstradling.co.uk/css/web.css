@@ -3864,14 +3864,29 @@ nav span {
   padding: 0.25em;
 }
 .block-text span:nth-child(1) {
-  font-size: 72px;
+  font-size: 50px;
   font-weight: 700;
 }
+@media (min-width: 768px) {
+  .block-text span:nth-child(1) {
+    font-size: 72px;
+  }
+}
 .block-text span:nth-child(2) {
-  font-size: 60px;
+  font-size: 40px;
+}
+@media (min-width: 768px) {
+  .block-text span:nth-child(2) {
+    font-size: 60px;
+  }
 }
 .block-text span:nth-child(3) {
-  font-size: 48px;
+  font-size: 30px;
+}
+@media (min-width: 768px) {
+  .block-text span:nth-child(3) {
+    font-size: 48px;
+  }
 }
 
 .blocks {
@@ -3933,7 +3948,12 @@ nav span {
 .block_text {
   background-color: #000;
   color: #FFF;
-  padding: 40px;
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .block_text {
+    padding: 40px;
+  }
 }
 
 .block-colour-1, .blocks_alt .block_text {
