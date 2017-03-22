@@ -116,3 +116,27 @@
 .hidden {
 	display: none;
 }
+
+.loader {
+	background-color: #FFF;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	z-index: 100;
+
+	&:before {
+		content: 'Loading...';
+		left: 0;
+		transform: translateY(-50%);
+		position: absolute;
+		top: 50%;
+		width: 100%;
+	}
+
+	.no-js & {
+		display: none;
+	}
+}

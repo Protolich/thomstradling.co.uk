@@ -567,6 +567,28 @@ template {
   display: none;
 }
 
+.loader {
+  background-color: #FFF;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  z-index: 100;
+}
+.loader:before {
+  content: 'Loading...';
+  left: 0;
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+.no-js .loader {
+  display: none;
+}
+
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
