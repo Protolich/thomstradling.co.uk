@@ -1,6 +1,10 @@
 <div class="blocks_row">
   <div class="block block_text">
-    <h2>[[+pagetitle:htmlent]]</h2>
+    <h2>
+    	[[+tv.project_link:notempty=`<a href="[[+tv.project_link]]">`]]
+    	[[+pagetitle:htmlent]]
+    	[[+tv.project_link:notempty=`</a>`]]
+    </h2>
     [[+content]]
   </div>
   <div class="block" style="background-image: url('[[+tv.project_image]]')"></div>
