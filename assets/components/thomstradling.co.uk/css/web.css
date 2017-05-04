@@ -3888,6 +3888,14 @@ nav span {
     font-size: 48px;
   }
 }
+.block-text span:nth-child(4) {
+  font-size: 24px;
+}
+@media (min-width: 768px) {
+  .block-text span:nth-child(4) {
+    font-size: 36px;
+  }
+}
 
 .blocks {
   align-items: center;

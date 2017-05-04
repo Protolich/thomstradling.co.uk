@@ -288,6 +288,14 @@ nav {
 				font-size: 48px;
 			}
 		}
+
+		&:nth-child(4) {
+			font-size: 24px;
+
+			@include min(768px) {
+				font-size: 36px;
+			}
+		}
 	}
 }
 
