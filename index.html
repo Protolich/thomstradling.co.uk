@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<!-- <base href="http://thomstradling.co.uk/"> -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+	<title>Thomas Stradling ~ Front-End Developer</title>
+	<link rel="stylesheet" href="/assets/components/thomstradling.co.uk/css/web.min.css">
+	<script>
+		/*! modernizr 3.4.0 (Custom Build) | MIT *
+		 * https://modernizr.com/download/?-setclasses !*/
+		!function(n,e,s){function o(n,e){return typeof n===e}function a(){var n,e,s,a,i,l,r;for(var c in f)if(f.hasOwnProperty(c)){if(n=[],e=f[c],e.name&&(n.push(e.name.toLowerCase()),e.options&&e.options.aliases&&e.options.aliases.length))for(s=0;s<e.options.aliases.length;s++)n.push(e.options.aliases[s].toLowerCase());for(a=o(e.fn,"function")?e.fn():e.fn,i=0;i<n.length;i++)l=n[i],r=l.split("."),1===r.length?Modernizr[r[0]]=a:(!Modernizr[r[0]]||Modernizr[r[0]]instanceof Boolean||(Modernizr[r[0]]=new Boolean(Modernizr[r[0]])),Modernizr[r[0]][r[1]]=a),t.push((a?"":"no-")+r.join("-"))}}function i(n){var e=r.className,s=Modernizr._config.classPrefix||"";if(c&&(e=e.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+s+"no-js(\\s|$)");e=e.replace(o,"$1"+s+"js$2")}Modernizr._config.enableClasses&&(e+=" "+s+n.join(" "+s),c?r.className.baseVal=e:r.className=e)}var t=[],f=[],l={_version:"3.4.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(n,e){var s=this;setTimeout(function(){e(s[n])},0)},addTest:function(n,e,s){f.push({name:n,fn:e,options:s})},addAsyncTest:function(n){f.push({name:null,fn:n})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr;var r=e.documentElement,c="svg"===r.nodeName.toLowerCase();a(),i(t),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();n.Modernizr=Modernizr}(window,document);
+	</script>
+</head>
+<body>
+  <div class="site">
+		<div class="view">
+			<div id="carousel">
+				<div class="slide slide-1 slide-active" id="home" style="background-image: url('/public/beach-sunny-1.jpg');">
+					<div class="slide_inner">
+                        <div class="block-text">
+							<span>Hi!
+                            </span><span>I'm Thom.
+                            </span><span>A Front-End Developer based in Bournemouth.
+                            </span><span>(Not always as sunny as you'd hope)</span>
+                        </div>
+					</div>
+					<a href="#about" class="nav-button nav-button-next js-goto" data-index="2"><i class="fa fa-user" aria-hidden="true"></i>About Me</a>
+				</div>
+
+				<div class="slide slide-2" id="about" style="background-image: url('/public/profile-1.jpg');">
+
+					<div class="slide_scroll">
+						<div class="slide_inner">
+							<div class="blocks">
+								<div class="blocks_row">
+                                    <div class="block block_text block_left block-colour-3">
+										<h2>About Me</h2>
+                                        <p>Outside of work I like to unwind by working out either lifting weights or training Muay Thai. Previously I have played bass in a number of bands and also enjoy playing guitar. On an evening I also enjoy a game or two of Overwatch, and yes I main Hanzo. Aside from these I enjoy reading, watching Clint Eastwood movies and assembling increasingly large Lego sets.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<a href="#home" class="nav-button nav-button-prev js-goto" data-index="1"><i class="fa fa-home" aria-hidden="true"></i></a>
+					<a href="#work" class="nav-button nav-button-next js-goto" data-index="3"><i class="fa fa-briefcase" aria-hidden="true"></i> My Work</a>
+				</div>
+				<div class="slide slide-3" id="work" style="background-image: url('/public/editor-1.jpg');">
+
+					<div class="slide_scroll">
+						<div class="slide_inner">
+                            <div class="blocks blocks_alt">
+								<div class="blocks_row">
+                                  <div class="block block_text">
+                                    <h2>
+                                    	<a href="http://adi.do/">
+                                    	Adido
+                                    	</a>
+                                    </h2>
+                                    <p class="justifycentre">HTML • CSS • JS •&nbsp;PHP&nbsp;•&nbsp;MODX</p>
+                                <p class="justifycentre">The Adido website was redesigned as part of a larger rebrand and strategic repositioning. I was responsible for implementing the new designs from the internal designer in HTML &amp; CSS and using JavaScript to provide any required interactivity. This project involved close collaboration with both the designer and the brand manager to make sure the website was focussed on the intended message.</p>
+                                <p class="justifycentre">&nbsp;</p>
+                                  </div>
+                                  <div class="block" style="background-image: url('/public/adido.jpg')"></div>
+                                </div>
+
+                                <div class="blocks_row">
+                                  <div class="block block_text">
+                                    <h2>
+                                    	<a href="http://bournemouth.gov.uk/Home.aspx">
+                                    	Bournemouth Council
+                                    	</a>
+                                    </h2>
+                                    <p class="justifycentre">HTML • CSS • C# • Razor • Contensis</p>
+                                <p class="justifycentre">As part of Bournemouth Council's plan to modernise it's digital service offerings I was responsible for producing the markup and styling for the new website. After creating the template pages I then integrated the new site into Contensis, the CMS used by the council.&nbsp;The integration involved implementing the static templates with Contensis and using C# and Razor Views to&nbsp;set up and control some of the programatically generated portions of the&nbsp;templates.</p>
+                                <p class="justifycentre">The project has also involved ongoing support for the main council site as well as work on several&nbsp;related websites such as the Council's Digital by Default platform, the Hengistbury Head website (<a href="https://web.archive.org/web/20180117230527/http://www.visithengistburyhead.co.uk/Home.aspx">visithengistburyhead.co.uk</a>) and the Bournemouth Beach Lodges website (<a href="https://www.bournemouthbeachlodges.co.uk/home.aspx">bournemouthbeachlodges.co.uk</a>).</p>
+                                  </div>
+                                  <div class="block" style="background-image: url('/public/bbc-1.jpg')"></div>
+                                </div>
+
+                                <div class="blocks_row">
+                                  <div class="block block_text">
+                                    <h2>
+                                    	<a href="https://www.charmedbymichaelmatthews.com/">
+                                    	Charmed
+                                    	</a>
+                                    </h2>
+                                    <p>HTML • CSS • JS •&nbsp;PHP&nbsp;•&nbsp;MODX&nbsp;•&nbsp;ECOM</p>
+                                <p>For the Charmed by Michael Matthews website they needed an online ecommerce platform to support their business going forward.</p>
+                                <p>The site started life in Adido's in-house CMS before being re-implmenented in MODX to ensure the site could be best supported going forward. I was responsible for implementing the designs in HTML &amp; CSS and integrating them with the CMS.</p>
+                                  </div>
+                                  <div class="block" style="background-image: url('/public/charmed-1.jpg')"></div>
+                                </div>
+
+                                <div class="blocks_row">
+                                  <div class="block block_text">
+                                    <h2>
+                                    	<a href="http://www.syog.com/">
+                                    	Super Yacht Owners Guide
+                                    	</a>
+                                    </h2>
+                                    <p>HTML • CSS • JS •&nbsp;PHP&nbsp;•&nbsp;MODX</p>
+                                <p>The SYOG site was based on a brief to highlight the high-end nature of their business. The site was built in MODX and I was responsible for implementing the designs in HTML &amp; CSS and integrating them with the CMS.</p>
+                                  </div>
+                                  <div class="block" style="background-image: url('/public/syog-1.jpg')"></div>
+                                </div>
+							</div>
+						</div>
+					</div>
+
+					<a href="#about" class="nav-button nav-button-prev js-goto" data-index="2"><i class="fa fa-user" aria-hidden="true"></i> About Me</a>
+					<a href="#contact" class="nav-button nav-button-next js-goto" data-index="4"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Contact Me</a>
+				</div>
+				<div class="slide slide-4" id="contact" style="background-image: url('/public/gardens-sunny-1.jpg');">
+					<div class="slide_scroll">
+						<div class="slide_inner">
+							<div class="blocks">
+								<div class="block block_text block_right">
+                                    <p>You can contact me on <a href="https://twitter.com/protolich">Twitter</a></p>
+									<!-- <form action="[[~[[*id]]]]#contact" class="form js-form-validate" method="post" data-ajax="[[~11]]">
+										[[!FormIt?
+											&hooks=`FormItSaveForm`
+											&formName=`Contact Form`
+											&successMessage=`1`
+											&validate=`name:required,email:email:required`
+											&validationErrorMessage=`1`
+										]]
+										<h2>Go on. Make me an offer I can't refuse.</h2>
+										<div class="alert-success [[!+fi.successMessage:neq=`1`:then=`hidden`]]">Thanks for contacting me!</div>
+										<div class="alert-error [[!+fi.validation_error_message:neq=`1`:then=`hidden`]]">There was an error with the submission. Please check your details and try again.</div>
+										<div class="form-item">
+											<input type="text" name="name" placeholder="Your name" value="[[!+fi.name]]" required data-msg-required="Please enter your name">
+										</div>
+										<div class="form-item">
+											<input type="email" name="email" placeholder="Your email" value="[[!+fi.email]]" required data-msg-required="Please enter your email" data-msg-email="Please enter a valid email">
+										</div>
+										<div class="form-item">
+											<textarea name="message" cols="30" rows="10" placeholder="Your message">[[!+fi.message]]</textarea>
+										</div>
+										<div class="form-buttons">
+											<button type="submit" class="button button_block">Go</button>
+										</div>
+									</form> -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<a href="#work" class="nav-button nav-button-prev js-goto" data-index="3"><i class="fa fa-briefcase" aria-hidden="true"></i> My Work</a>
+				</div>
+			</div>
+		</div>
+		<nav>
+			<a href="#home" class="js-goto" data-index="1"><span>Home</span></a>
+			<a href="#about" class="js-goto" data-index="2"><span>About</span></a>
+			<a href="#work" class="js-goto" data-index="3"><span>Work</span></a>
+			<a href="#contact" class="js-goto" data-index="4"><span>Contact</span></a>
+		</nav>
+	</div> <!-- .site -->
+	<div class="loader"></div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
+	<script>
+		(function(){
+			// var test = $('body').hasClass('no-3d');
+			// if ($('body').hasClass('no-3d')) return;
+			// Elements
+			var elCarousel = document.getElementById('carousel'),
+				elSlides = document.querySelectorAll('.slide');
+
+			// Variables
+			var panelSize = elCarousel.offsetWidth,
+				numberOfPanels = 9,
+				tz = Math.round( ( panelSize / 2 ) / Math.tan( Math.PI / numberOfPanels ) ),
+				trsSpd = 0.3,
+				currentPanel = 'home',
+				carouselTrf = {};
+
+			// Functions
+			var funcApplyTransforms = function(el,trf){
+				// My magical transform handler function
+				// Use an object to track the transforms and apply to element
+				var s = [];
+				for (var k in trf) {
+					if (trf[k]) s.push(k+'('+trf[k]+')');
+				}
+				el.style.transform = s.join(' ');
+			};
+
+			var funcUpdateTz = function(){
+				var panelSize = elCarousel.offsetWidth;
+				return Math.round( ( panelSize / 2 ) / Math.tan( Math.PI / numberOfPanels ) );
+			};
+
+			var funcSetup = function(){
+				tz = funcUpdateTz();
+				// Set the transforms for each slide
+				for (var i = 0, l = elSlides.length; i < l; i++) {
+					var deg = (360 / numberOfPanels) * i;
+					// var s = window.getComputedStyle(elSlides[i], null);
+					elSlides[i].style.transform = ' rotateY( '+deg+'deg ) translateZ( '+tz+'px )';
+				}
+
+				// Shift the carousel back
+				carouselTrf.translateZ = (-tz)+'px';
+				funcApplyTransforms(elCarousel, carouselTrf);
+			};
+			var funcReset = function(){
+				// Reset the transforms for each slide
+				for (var i = 0, l = elSlides.length; i < l; i++) {
+					elSlides[i].style.transform = '';
+				}
+
+				// Reset the carousel
+				elCarousel.style.transform = '';
+			};
+
+			// Media Queries
+			var mqSlides;
+			(function(){
+				var updateSlides = function(mq){
+					console.log('Function: updateSlides');
+					if (mq.matches) {
+						funcSetup();
+					} else {
+						funcReset();
+					}
+				};
+				if (window.matchMedia) {
+					var mq = window.matchMedia( "(min-width: 768px)" );
+					if (mq.addListener) mq.addListener(updateSlides);
+					updateSlides(mq);
+				}
+
+				$(window).on('resize', function(){
+					var mq = window.matchMedia( "(min-width: 768px)" );
+					updateSlides(mq);
+				});
+			})();
+
+
+			setTimeout(function(){
+				elCarousel.classList.add('ready');
+			}, 100);
+
+			var funcGoToPanel = function(idx){
+				if (window.matchMedia) {
+					// Stop trying to transform the carousel on smaller devices //
+					var mq = window.matchMedia( "(min-width: 768px)" );
+					if (!mq.matches) return false;
+				}
+				carouselTrf.scale = '0.9';
+				funcApplyTransforms(elCarousel, carouselTrf);
+				setTimeout(function(){
+					carouselTrf.rotateY = (-(idx-1) * (360 / numberOfPanels))+'deg';
+					funcApplyTransforms(elCarousel, carouselTrf);
+
+					setTimeout(function(){
+						carouselTrf.scale = '1';
+						funcApplyTransforms(elCarousel, carouselTrf);
+					},trsSpd * 1000);
+				}, trsSpd * 1000);
+
+				for (var i = 0, l = elSlides.length; i < l; i++) {
+					elSlides[i].classList.remove('slide-active');
+				}
+				elSlides[idx - 1].classList.add('slide-active');
+			};
+
+			var funcGoToPanelName = function(name){
+				var elTgt = document.getElementById(name);
+				var nodeList = Array.prototype.slice.call( document.getElementById('carousel').children );
+				funcGoToPanel(nodeList.indexOf(elTgt) + 1);
+			};
+
+			if (window.location.hash) {
+				funcGoToPanelName(window.location.hash.substr(1));
+			}
+
+			$('.js-goto')
+				.on('click', function(event){
+					event.preventDefault();
+					// Get the panel name from the HREF attribute
+					var panel = this.href.substr(this.href.indexOf('#') + 1);
+
+					if (window.matchMedia) {
+						// Stop trying to transform the carousel on smaller devices //
+						var mq = window.matchMedia( "(min-width: 768px)" );
+						if (!mq.matches) {
+							// Scroll to the top of the target element //
+							var elTgt = document.getElementById(panel);
+							$('html,body')
+								.animate({ scrollTop: elTgt.offsetTop });
+							return false;
+						}
+					}
+					if (currentPanel === panel) return;
+					currentPanel = panel;
+					history.pushState({page: panel}, panel, window.location.pathname+'#'+panel);
+					funcGoToPanelName(panel);
+				});
+
+			$('.js-form-validate').validate({
+				submitHandler: function(form) {
+					$(form).trigger('ajax-submit');
+			}
+			});
+
+			window.onpopstate = function(event){
+				// console.log(event.state);
+				if (event.state && event.state.page) {
+					funcGoToPanelName(event.state.page);
+				} else {
+					funcGoToPanelName('home');
+				}
+			};
+
+			$('[data-ajax]')
+				.each(function(index, elForm){
+					// Elements
+					var elError = elForm.querySelector('.alert-error'),
+							elSuccess = elForm.querySelector('.alert-success');
+
+					// jQuery Objects
+					var _form = $(elForm);
+					_form
+						.on('submit', function(event){
+							event.preventDefault();
+						})
+						.on('ajax-submit', function(){
+							$.post(
+								elForm.dataset.ajax,
+								_form.serialize(),
+								function(data, textStatus, jqXHR){
+									console.log(JSON.parse(data));
+									data = JSON.parse(data);
+									if (data.status === 1) {
+										elError.classList.add('hidden');
+										elSuccess.classList.remove('hidden');
+									}
+									if (data.status === 2) {
+										elSuccess.classList.add('hidden');
+										elError.classList.remove('hidden');
+									}
+								}
+							);
+						});
+				});
+
+			$('.loader')
+				.addClass('loaded');
+
+			setTimeout(function(){
+				$('.loader')
+					.addClass('hidden');
+			}, 300);
+		})();
+
+	</script>
+</body>
+</html>
